@@ -10,12 +10,10 @@ package thon;
  *
  * @author Gisward
  */
-public class THON 
+public class NavigationCntl 
 {
-
-    public static void main(String[] args) 
+    public NavigationCntl()
     {
-        LoginCntl theLoginCntl = new LoginCntl();
+        System.out.println("Made it to NavigationCntl");
     }
-
 }

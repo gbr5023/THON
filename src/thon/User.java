@@ -13,9 +13,9 @@ package thon;
 public class User 
 {
     private String username;
-    private String password;
+    private char[] password;
     
-    public User(String newUsername, String newPassword)
+    public User(String newUsername, char[] newPassword)
     {
         this.username = newUsername;
         this.password = newPassword;
@@ -31,12 +31,12 @@ public class User
         this.username = newUsername;
     }
     
-    public String getPassword()
+    public char[] getPassword()
     {
         return this.password;
     }
     
-    public void setPassword(String newPassword)
+    public void setPassword(char[] newPassword)
     {
         this.password = newPassword;
     }
