@@ -133,12 +133,12 @@ public class LoginUIv2 extends JFrame implements ActionListener
             {
                 loginFrame.setVisible(false);
                 loginFrame.dispose();
-                System.out.println("Authenticated.");
+                System.err.println("Authenticated.");
                 this.theLoginCntl.requestNavigationCntl();
             }
             else
             {
-                System.out.println("NOT Authenticated.");
+                System.err.println("NOT Authenticated.");
                 System.err.println("Please enter existing username and password.");
             }
         } 
