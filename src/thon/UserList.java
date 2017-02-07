@@ -81,7 +81,7 @@ public class UserList
         for(int i = 0; i < this.theListOfUsers.size(); i++)
         {
             String testUsername = this.theListOfUsers.get(i).getUsername();
-            String testPassword = new String(this.theListOfUsers.get(i).getPassword());
+            String testPassword = String.valueOf(this.theListOfUsers.get(i).getPassword());
             System.out.println(testUsername + " " + testPassword);
         }
         
