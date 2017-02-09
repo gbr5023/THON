@@ -87,14 +87,17 @@ public class UserList
         
     }
     
-    public boolean authenticate(String usernameToCheck, char[] passwordToCheck){
+    public boolean authenticate(String usernameToCheck, char[] passwordToCheck)
+    {
         boolean authenticated = false;
         boolean nameMatch = false;
         boolean passwordMatch = false;
-        for(int i = 0; i < theListOfUsers.size(); i++){
+        for(int i = 0; i < theListOfUsers.size(); i++)
+        {
             nameMatch = usernameToCheck.equals(theListOfUsers.get(i).getUsername());
             passwordMatch = String.valueOf(passwordToCheck).equals(String.valueOf(theListOfUsers.get(i).getPassword()));
-            if(nameMatch && passwordMatch){
+            if(nameMatch && passwordMatch)
+            {
                 authenticated = true;
                 break;
             }

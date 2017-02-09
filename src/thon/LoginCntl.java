@@ -6,6 +6,7 @@
 
 package thon;
 
+import java.io.IOException;
 import javax.swing.JFrame;
 
 /**
@@ -23,8 +24,7 @@ public class LoginCntl
     {
         System.out.println("Made it to LoginCntl");
         theUserList = new UserList();
-        theLoginUIv2 = new LoginUIv2(this);
-        
+        theLoginUIv2 = new LoginUIv2(this);        
     }
     
     public void requestNavigationCntl()
