@@ -16,7 +16,7 @@ import javax.swing.*;
  */
 public class LoginUIv2 extends JFrame implements ActionListener
 {
-	JFrame loginFrame;
+	public JFrame loginFrame;
 	private JLabel usernameLabel;
 	private JLabel passwordLabel;
 	private JTextField usernameTextField;
@@ -133,12 +133,12 @@ public class LoginUIv2 extends JFrame implements ActionListener
             {
                 loginFrame.setVisible(false);
                 loginFrame.dispose();
-                System.err.println("Authenticated.");
+                System.err.println("User Authenticated.");
                 this.theLoginCntl.requestNavigationCntl();
             }
             else
             {
-                System.err.println("NOT Authenticated.");
+                System.err.println("User NOT Authenticated.");
                 System.err.println("Please enter existing username and password.");
             }
         } 
