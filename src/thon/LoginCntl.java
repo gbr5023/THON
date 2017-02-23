@@ -16,15 +16,16 @@ import javax.swing.JFrame;
 public class LoginCntl 
 {
     private UserList theUserList;
-    // private LoginUI theLoginUI; failed
-    private LoginUIv2 theLoginUIv2;
+    private LoginUI theLoginUI;
+    //private LoginUIv2 theLoginUIv2;
     private NavigationCntl theNavigationCntl;
     
     public LoginCntl()
     {
         System.out.println("Made it to LoginCntl");
         theUserList = new UserList();
-        theLoginUIv2 = new LoginUIv2(this);        
+        theLoginUI = new LoginUI(this);
+        theLoginUI.setVisible(true);
     }
     
     public void requestNavigationCntl()

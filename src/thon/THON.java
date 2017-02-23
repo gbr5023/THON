@@ -6,6 +6,8 @@
 
 package thon;
 
+import thon.LoginCntl;
+
 /**
  *
  * @author Gisward

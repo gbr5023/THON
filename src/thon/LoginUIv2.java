@@ -25,6 +25,7 @@ public class LoginUIv2 extends JFrame implements ActionListener
 	private JButton exitButton;
         private JPanel textFieldPanel;
         private JPanel buttonPanel;
+        private JButton splashScreen;
 	GridBagConstraints layoutConst; //layout manager
 	private LoginCntl theLoginCntl;
 	
@@ -38,24 +39,29 @@ public class LoginUIv2 extends JFrame implements ActionListener
 	{   
             usernameLabel = new JLabel("Username");
             passwordLabel = new JLabel("Password");
-            usernameTextField = new JTextField(15);
-            passwordField = new JPasswordField(15);
+            usernameTextField = new JTextField(10);
+            passwordField = new JPasswordField(10);
             submitButton = new JButton("Submit");
             exitButton = new JButton("Exit");
-              
-            usernameLabel.setFont(new Font("Arial", Font.PLAIN, 18));
-            passwordLabel.setFont(new Font("Arial", Font.PLAIN, 18));
-            usernameTextField.setFont(new Font("Arial", Font.PLAIN, 18));
-            passwordField.setFont(new Font("Arial", Font.PLAIN, 18));
-            submitButton.setFont(new Font("Arial", Font.PLAIN, 18));
-            exitButton.setFont(new Font("Arial", Font.PLAIN, 18));
+            splashScreen = new JButton(new ImageIcon("src/THONLogo.png"));
+            
+//            usernameLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+//            passwordLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+//            usernameTextField.setFont(new Font("Arial", Font.PLAIN, 18));
+//            passwordField.setFont(new Font("Arial", Font.PLAIN, 18));
+//            submitButton.setFont(new Font("Arial", Font.PLAIN, 18));
+//            exitButton.setFont(new Font("Arial", Font.PLAIN, 18));
             
             usernameTextField.setPreferredSize(new Dimension(50,30));
             passwordField.setPreferredSize(new Dimension(50, 30));
-            submitButton.setPreferredSize(new Dimension(90, 30));
-            exitButton.setPreferredSize(new Dimension(90, 30));
+            submitButton.setPreferredSize(new Dimension(90, 35));
+            exitButton.setPreferredSize(new Dimension(90, 35));
             
             textFieldPanel = new JPanel(new FlowLayout());
+            
+            //Initial logo of the application
+            textFieldPanel.add(splashScreen);
+            //User info to input on the panel
             textFieldPanel.add(usernameLabel);    
             textFieldPanel.add(usernameTextField);            
                 usernameTextField.setEditable(true);
@@ -66,7 +72,8 @@ public class LoginUIv2 extends JFrame implements ActionListener
                         {
                             usernameTextFieldActionPerformed(evt);
                         }
-                    });	
+                    });
+            //User password to input on the panel
             textFieldPanel.add(passwordLabel);       
             textFieldPanel.add(passwordField);
                 passwordField.setEditable(true);
