@@ -15,5 +15,12 @@ public class NavigationCntl
     public NavigationCntl()
     {
         System.out.println("Made it to NavigationCntl");
+        
+    }
+    
+    public void requestMainMenuUI()
+    {
+        MainMenuUI theMainMenu = new MainMenuUI();
+        theMainMenu.setVisible(true);
     }
 }
