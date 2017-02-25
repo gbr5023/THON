@@ -86,9 +86,9 @@
                   <Component id="passwordField" pref="33" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="submitButton" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                  <Component id="exitButton" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="exitButton" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
           </Group>
