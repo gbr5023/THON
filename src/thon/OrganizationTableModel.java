@@ -60,7 +60,6 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
             default:
                 return null;
         }
-        
         return objectToReturn;
     }
 }

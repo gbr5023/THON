@@ -13,7 +13,12 @@ package thon;
 public class SpaceSectionUI extends javax.swing.JFrame 
 {
     private SpaceAssignCntl parentSpaceAssignCntl;
+<<<<<<< Updated upstream
     String status;
+=======
+    private String sortedValue;
+    
+>>>>>>> Stashed changes
     
     public SpaceSectionUI(SpaceAssignCntl newParentSpaceAssignCntl) 
     {
@@ -172,7 +177,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
-        // TODO add your handling code here:
+        sortedValue = searchTextField.getText();
     }//GEN-LAST:event_searchTextFieldActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -211,7 +216,14 @@ public class SpaceSectionUI extends javax.swing.JFrame
     }
     
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        
+        /*
+        This method would serve as a sorting of the organization is going to occur
+        Logic:
+        while (value grabped in the textField == to the value in the parentOrganizationLoop) {
+            Update the entire organization table;
+        }
+        */
+//        parentSpaceAssignCntl.parentOrganizationList;
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
