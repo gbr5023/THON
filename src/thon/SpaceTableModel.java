@@ -28,7 +28,7 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
     }
     
     @Override
-        public String getColumnName(int column) 
+    public String getColumnName(int column) 
     {
         return columnSpaceNameArray;
     }
@@ -57,7 +57,6 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
             default:
                 return null;
         }
-        
         return objectToReturn;
     }
 }
