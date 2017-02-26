@@ -60,7 +60,6 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
             default:
                 return null;
         }
-        
         return objectToReturn;
     }
 }
