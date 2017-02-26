@@ -129,7 +129,7 @@ public class LoginUI extends javax.swing.JFrame {
                     .addComponent(passwordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49))
@@ -160,7 +160,7 @@ public class LoginUI extends javax.swing.JFrame {
             this.setVisible(false);
             this.dispose();
             System.err.println("User Authenticated.");
-            this.parentLoginCntl.requestNavigationCntl();
+            this.parentLoginCntl.requestNavigationCntl(username);
         }
         else
         {
