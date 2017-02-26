@@ -17,6 +17,7 @@ public class LoginCntl
 {
     private UserList theUserList;
     private LoginUI theLoginUI;
+    private String theUsername;
     //private LoginUIv2 theLoginUIv2;
     private NavigationCntl theNavigationCntl;
     
@@ -25,12 +26,16 @@ public class LoginCntl
         System.out.println("Made it to LoginCntl");
         theUserList = new UserList();
         theLoginUI = new LoginUI(this);
+        theLoginUI.setTitle("Technology Control System Login");
+        theLoginUI.setLocationRelativeTo(null);
+        theLoginUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         theLoginUI.setVisible(true);
     }
     
-    public void requestNavigationCntl()
+    public void requestNavigationCntl(String theUsername)
     {
-        this.theNavigationCntl = new NavigationCntl();
+        setUsername(theUsername);
+        this.theNavigationCntl = new NavigationCntl(this.theUsername);
     }
     
     public boolean requestAuthenticate(String usernameToCheck, char[] passwordToCheck)
@@ -39,5 +44,10 @@ public class LoginCntl
         boolean authenticated = theUserList.authenticate(usernameToCheck, passwordToCheck);
 
         return authenticated;
+    }
+    
+    public void setUsername(String theUsername)
+    {
+        this.theUsername = theUsername;
     }
 }

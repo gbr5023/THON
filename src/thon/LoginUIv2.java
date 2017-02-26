@@ -141,7 +141,7 @@ public class LoginUIv2 extends JFrame implements ActionListener
                 loginFrame.setVisible(false);
                 loginFrame.dispose();
                 System.err.println("User Authenticated.");
-                this.theLoginCntl.requestNavigationCntl();
+                this.theLoginCntl.requestNavigationCntl(username);
             }
             else
             {
