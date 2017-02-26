@@ -12,5 +12,44 @@ package thon;
  */
 public class Organization 
 {
+    String name;
+    boolean hasSpace;
+    String space;
     
+    public Organization(String newName)
+    {
+        name = newName;
+        hasSpace = false;
+        space = "--";
+    }
+    
+    public void setOrgName(String newOrgName)
+    {
+        name = newOrgName;
+    }
+    
+    public String getOrgName()
+    {
+        return name;
+    }
+    
+    public void setOrgSpace(String newOrgSpace)
+    {
+        space = newOrgSpace;
+    }
+    
+    public String getOrgSpace()
+    {
+        return space;
+    }
+    
+    public void setHasSpace(boolean newHasSpaceStatus)
+    {
+        hasSpace = newHasSpaceStatus;
+    }
+    
+    public boolean getHasSpace()
+    {
+        return hasSpace;
+    }
 }
