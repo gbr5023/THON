@@ -6,6 +6,7 @@
 
 package thon;
 
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.TableModel;
 
@@ -17,7 +18,10 @@ public class SpaceAssignCntl
 {
     SpaceSectionUI theSpaceSection;
     NavigationCntl parentNavigationCntl;
-    OrganizationList parentOrganizationList;
+    OrganizationList theOrganizationList;
+    SpaceList theSpaceList;
+    OrganizationTableModel theOrganizationTableModel;
+    SpaceTableModel theSpaceTableModel;
     
     
     public SpaceAssignCntl()
@@ -27,14 +31,14 @@ public class SpaceAssignCntl
     
     public TableModel getOrganizationTableModel()
     {
-        OrganizationTableModel theOrganizationTableModel = new OrganizationTableModel();
+        theOrganizationTableModel = new OrganizationTableModel();
         
         return theOrganizationTableModel;
     }
     
     public TableModel getSpaceTableModel()
     {
-        SpaceTableModel theSpaceTableModel = new SpaceTableModel();
+        theSpaceTableModel = new SpaceTableModel();
         
         return theSpaceTableModel;
     }
@@ -44,10 +48,32 @@ public class SpaceAssignCntl
         theSpaceSection = new SpaceSectionUI(this);
         theSpaceSection.pack();
         theSpaceSection.setTitle("Space Assignment");
-        theSpaceSection.setSize(800, 700);
+        theSpaceSection.setSize(800, 600);
         theSpaceSection.setLocationRelativeTo(null);
         theSpaceSection.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         theSpaceSection.setVisible(true);
+    }
+    
+    public void setOrganizationListClass(OrganizationList theOrganizationList)
+    {
+        this.theOrganizationList = theOrganizationList;
+    }
+
+    public void setSpaceListClass(SpaceList theSpaceList)
+    {
+        this.theSpaceList = theSpaceList;
+    }
+    
+    public ArrayList<Organization> getParentOrganizationList()
+    {
+        theOrganizationList = new OrganizationList();
+        return theOrganizationList.getParentOrganizationList();
+    }
+    
+    public ArrayList<Space> getParentSpaceList()
+    {
+        theSpaceList = new SpaceList();
+        return theSpaceList.getParentSpaceList();
     }
     
     public void setNavigationCntl(NavigationCntl newParentNavigationCntl)

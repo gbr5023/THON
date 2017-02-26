@@ -16,19 +16,22 @@ import javax.swing.table.TableModel;
  */
 public class SpaceTableModel extends AbstractTableModel implements TableModel
 {
+    SpaceAssignCntl parentSpaceAssignCntl;
     SpaceList theSpaceList;
     ArrayList<Space> parentSpaceList;
     String columnSpaceNameArray;
     
     public SpaceTableModel()
     {
+        parentSpaceAssignCntl = new SpaceAssignCntl();
         theSpaceList = new SpaceList();
         parentSpaceList = theSpaceList.getParentSpaceList();
         columnSpaceNameArray = "Spaces";
+        parentSpaceAssignCntl.setSpaceListClass(theSpaceList);       
     }
     
     @Override
-        public String getColumnName(int column) 
+    public String getColumnName(int column) 
     {
         return columnSpaceNameArray;
     }

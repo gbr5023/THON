@@ -14,6 +14,7 @@ public class Space
 {
     String space;
     boolean hasOrg;
+    String org;
     
     public Space(String newSpace)
     {
@@ -29,6 +30,16 @@ public class Space
     public String getSpace()
     {
         return space;
+    }
+    
+    public void setOrg(String newOrg)
+    {
+        org = newOrg;
+    }
+    
+    public String getOrg()
+    {
+        return org;
     }
     
     public void setHasOrg(boolean hasNewOrg)

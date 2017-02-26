@@ -16,15 +16,18 @@ import javax.swing.table.TableModel;
  */
 public class OrganizationTableModel extends AbstractTableModel implements TableModel
 {
+    SpaceAssignCntl parentSpaceAssignCntl;
     OrganizationList theOrganizationList;
     ArrayList<Organization> parentOrganizationList;
     String columnOrgNameArray;
 
     public OrganizationTableModel()
     {
+        parentSpaceAssignCntl = new SpaceAssignCntl();
         theOrganizationList = new OrganizationList();
         parentOrganizationList = theOrganizationList.getParentOrganizationList();
         columnOrgNameArray = "Organization";
+        parentSpaceAssignCntl.setOrganizationListClass(theOrganizationList);
     }
     
     @Override //must override original abstract method from AbstractTableModel
