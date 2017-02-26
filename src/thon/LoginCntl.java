@@ -18,7 +18,6 @@ public class LoginCntl
     private UserList theUserList;
     private LoginUI theLoginUI;
     private String theUsername;
-    //private LoginUIv2 theLoginUIv2;
     private NavigationCntl theNavigationCntl;
     
     public LoginCntl()
