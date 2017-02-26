@@ -13,13 +13,9 @@ package thon;
 public class SpaceSectionUI extends javax.swing.JFrame 
 {
     private SpaceAssignCntl parentSpaceAssignCntl;
-<<<<<<< Updated upstream
     String status;
-=======
     private String sortedValue;
-    
->>>>>>> Stashed changes
-    
+        
     public SpaceSectionUI(SpaceAssignCntl newParentSpaceAssignCntl) 
     {
         this.parentSpaceAssignCntl = newParentSpaceAssignCntl;
@@ -46,8 +42,8 @@ public class SpaceSectionUI extends javax.swing.JFrame
         organizationTable = new javax.swing.JTable();
         searchButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        statusTextField = new javax.swing.JTextField();
         statusLabel = new javax.swing.JLabel();
+        statusJLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(510, 358));
@@ -102,19 +98,10 @@ public class SpaceSectionUI extends javax.swing.JFrame
             }
         });
 
-        statusTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        statusTextField.setEditable(false);
-        statusTextField.setText(this.getStatusString()
-        );
-        statusTextField.setBorder(null);
-        statusTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statusTextFieldActionPerformed(evt);
-            }
-        });
-
         statusLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         statusLabel.setText("Assign Status:");
+
+        statusJLabel.setText(this.getStatusString());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,11 +113,12 @@ public class SpaceSectionUI extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(searchButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(organizationScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                    .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 36, Short.MAX_VALUE))
+                    .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spaceMap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(backButton)
@@ -141,7 +129,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(statusLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(statusTextField)))
+                        .addComponent(statusJLabel)))
                 .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
@@ -153,9 +141,9 @@ public class SpaceSectionUI extends javax.swing.JFrame
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(searchButton)
                             .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
+                        .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
                         .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33))
                     .addGroup(layout.createSequentialGroup()
@@ -168,8 +156,8 @@ public class SpaceSectionUI extends javax.swing.JFrame
                             .addComponent(exitButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(statusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(statusLabel))
+                            .addComponent(statusLabel)
+                            .addComponent(statusJLabel))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -196,7 +184,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
         currentOrg.setHasSpace(true);
         System.out.println();
         String newStatus = (currentOrg.getOrgName() + ", Has Space? " + currentOrg.getHasSpace() + ": " + currentOrg.getOrgSpace());
-        this.statusTextField.setText(newStatus);
+        this.statusJLabel.setText(newStatus);
         this.setStatusString(newStatus);
         
         currentSpace.setOrg(currentOrg.getOrgName());
@@ -229,10 +217,6 @@ public class SpaceSectionUI extends javax.swing.JFrame
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
-
-    private void statusTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_statusTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,7 +257,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
     private javax.swing.JLabel spaceMap;
     private javax.swing.JScrollPane spaceSectionScrollPane;
     private javax.swing.JTable spaceTable;
+    private javax.swing.JLabel statusJLabel;
     private javax.swing.JLabel statusLabel;
-    private javax.swing.JTextField statusTextField;
     // End of variables declaration//GEN-END:variables
 }
