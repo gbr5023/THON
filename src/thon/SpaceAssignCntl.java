@@ -54,14 +54,14 @@ public class SpaceAssignCntl
         theSpaceSection.setVisible(true);
     }
     
-    public void setOrganizationListClass(OrganizationList theOrganizationList)
+    public void setOrganizationListClass()//OrganizationList theOrganizationList)
     {
-        this.theOrganizationList = theOrganizationList;
+        this.theOrganizationList = theOrganizationTableModel.getTheOrganizationList();
     }
 
-    public void setSpaceListClass(SpaceList theSpaceList)
+    public void setSpaceListClass()//SpaceList theSpaceList)
     {
-        this.theSpaceList = theSpaceList;
+        this.theSpaceList = theSpaceTableModel.getTheSpaceList();
     }
     
     public ArrayList<Organization> getParentOrganizationList()
