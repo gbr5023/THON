@@ -59,7 +59,7 @@ public class MainMenuUI extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         radioButtonGroup.add(spaceAssignRadioButton);
-        spaceAssignRadioButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        spaceAssignRadioButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         spaceAssignRadioButton.setText("Space Assignment");
         spaceAssignRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,26 +68,26 @@ public class MainMenuUI extends javax.swing.JFrame
         });
 
         radioButtonGroup.add(currentCapacityRadioButton);
-        currentCapacityRadioButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        currentCapacityRadioButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         currentCapacityRadioButton.setText("Current THON Capacity");
 
         radioButtonGroup.add(thonraiserRadioButton);
-        thonraiserRadioButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        thonraiserRadioButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         thonraiserRadioButton.setText("THONraiser");
 
         radioButtonGroup.add(thonpassRadioButton);
-        thonpassRadioButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        thonpassRadioButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         thonpassRadioButton.setText("THONPass");
 
         userIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thon/myimage/user-alt-128.png"))); // NOI18N
 
-        chooseLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        chooseLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         chooseLabel.setText("Tasks:");
 
         userTitleLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         userTitleLabel.setText("User:");
 
-        exitButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        exitButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         exitButton.setText("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +95,7 @@ public class MainMenuUI extends javax.swing.JFrame
             }
         });
 
-        goButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        goButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         goButton.setText("Go");
         goButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,10 +103,10 @@ public class MainMenuUI extends javax.swing.JFrame
             }
         });
 
-        userTitleLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        userTitleLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         userTitleLabel1.setText("Position:");
 
-        userTitleLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        userTitleLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         userTitleLabel2.setText("Shifts:");
 
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -123,10 +123,10 @@ public class MainMenuUI extends javax.swing.JFrame
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        userTitleLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        userTitleLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         userTitleLabel3.setText("Contact:");
 
-        exitButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        exitButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         exitButton1.setText("Edit");
         exitButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,47 +153,48 @@ public class MainMenuUI extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(exitButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(108, 108, 108))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(userTitleLabel2)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(userTitleLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(userTitleLabel3)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)))
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(exitButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(goButton))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(spaceAssignRadioButton)
-                                .addComponent(currentCapacityRadioButton)
-                                .addComponent(chooseLabel)
-                                .addComponent(thonpassRadioButton)
-                                .addComponent(thonraiserRadioButton))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addComponent(userIconLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(userTitleLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addGap(30, 30, 30))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addComponent(exitButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(108, 108, 108))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(userTitleLabel2)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(userTitleLabel1)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(userTitleLabel3)
+                                                .addGap(4, 4, 4)
+                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)))
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(userIconLabel))
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(exitButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(goButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(currentCapacityRadioButton)
+                        .addComponent(thonpassRadioButton)
+                        .addComponent(thonraiserRadioButton))
+                    .addComponent(spaceAssignRadioButton, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chooseLabel, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,9 +203,9 @@ public class MainMenuUI extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userTitleLabel)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(userIconLabel)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,22 +223,22 @@ public class MainMenuUI extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
                         .addComponent(chooseLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(spaceAssignRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(currentCapacityRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(thonpassRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(thonraiserRadioButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
+                        .addComponent(thonraiserRadioButton)
+                        .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(exitButton)
                             .addComponent(goButton)
                             .addComponent(exitButton1))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
