@@ -22,6 +22,72 @@ public class SpaceList
     Scanner in;
     ArrayList<Space> parentSpaceList;
     Space newSpace;
+    final String COMMA_DELIMITER = ",";
+    
+    public SpaceList()
+    {
+        spaceFileURL = getClass().getResource("SpaceList.csv");
+        spaceFile = new File(spaceFileURL.getPath());
+        
+        if(parentSpaceList == null)
+        {
+            readSpaceFile();
+        }
+    }
+
+    public void readSpaceFile() 
+    {
+        try
+        {
+            boolean cont = true;
+            in = new Scanner(spaceFile);
+            parentSpaceList = new ArrayList<>();
+
+            while(cont == true)
+            {
+                if(in.hasNext())
+                {
+                    String temp = in.nextLine();
+                    String[] newSpa = temp.split(COMMA_DELIMITER);
+                    
+                    if (newSpa.length > 0) {
+                        newSpace = new Space(newSpa[0], newSpa[1], newSpa[2], newSpa[3]);
+                        parentSpaceList.add(newSpace);
+                    }
+                }
+                else
+                {
+                    cont = false;
+                }               
+            }        
+            //printParentSpaceList();
+        }
+        catch(Exception err)
+        {
+            
+            err.printStackTrace();
+        }
+    }
+    
+    public ArrayList<Space> getParentSpaceList()
+    {
+        return parentSpaceList;
+    }
+    
+    public void printParentSpaceList()
+    {
+        for(int i = 0; i < parentSpaceList.size(); i++)
+        {
+            System.out.println(parentSpaceList.get(i).getSpaceDetails());
+        }
+        System.out.println(parentSpaceList.size());
+    }
+    /*
+    URL spaceFileURL;
+    File spaceFile;
+    Scanner in;
+    ArrayList<Space> parentSpaceList;
+    Space newSpace;
     
     public SpaceList()
     {
@@ -68,4 +134,5 @@ public class SpaceList
     {
         return parentSpaceList;
     }
+*/
 }

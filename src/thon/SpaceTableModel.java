@@ -19,14 +19,14 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
     //SpaceAssignCntl parentSpaceAssignCntl;
     SpaceList theSpaceList;
     ArrayList<Space> parentSpaceList;
-    String columnSpaceNameArray;
+    String[] columnSpaceNameArray = {"Space","Current Seat Count", "Has Org?","Org"};
     
     public SpaceTableModel()
     {
         //parentSpaceAssignCntl = new SpaceAssignCntl();
         theSpaceList = new SpaceList();
         parentSpaceList = theSpaceList.getParentSpaceList();
-        columnSpaceNameArray = "Spaces";
+        //columnSpaceNameArray = {"Space","Current Seat Count", "Has Org?","Org"};
         //parentSpaceAssignCntl.setSpaceListClass(theSpaceList);       
     }
     
@@ -35,10 +35,9 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
         return this.theSpaceList;
     }
     
-    @Override
     public String getColumnName(int column) 
     {
-        return columnSpaceNameArray;
+        return columnSpaceNameArray[column];
     }
     
     @Override
@@ -50,7 +49,7 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
     @Override
     public int getColumnCount() 
     {
-        return 1;
+        return columnSpaceNameArray.length;
     }
 
     @Override
@@ -61,6 +60,15 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
         {
             case 0:
                 objectToReturn = parentSpaceList.get(row).getSpace();
+                break;
+            case 1:
+                objectToReturn = parentSpaceList.get(row).getCapacity();
+                break;
+            case 2:
+                objectToReturn = parentSpaceList.get(row).getHasOrg();
+                break;
+            case 3:
+                objectToReturn = parentSpaceList.get(row).getOrg();
                 break;
             default:
                 return null;

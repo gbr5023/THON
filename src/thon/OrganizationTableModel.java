@@ -19,14 +19,14 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     //SpaceAssignCntl parentSpaceAssignCntl;
     OrganizationList theOrganizationList;
     ArrayList<Organization> parentOrganizationList;
-    String columnOrgNameArray;
+    String[] columnOrgNameArray = {"Organization","Member Count","Has Space?","Space"};
 
     public OrganizationTableModel()
     {
         //parentSpaceAssignCntl = new SpaceAssignCntl();
         theOrganizationList = new OrganizationList();
         parentOrganizationList = theOrganizationList.getParentOrganizationList();
-        columnOrgNameArray = "Organization";
+        //columnOrgNameArray = "Organization";
         //parentSpaceAssignCntl.setOrganizationListClass(theOrganizationList);
     }
     
@@ -38,7 +38,7 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     @Override //must override original abstract method from AbstractTableModel
     public String getColumnName(int column) 
     {
-        return columnOrgNameArray;
+        return columnOrgNameArray[column];
     }
     
     @Override
@@ -50,7 +50,7 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     @Override
     public int getColumnCount() 
     {
-        return 1;
+        return columnOrgNameArray.length;
     }
 
     @Override
@@ -61,6 +61,15 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
         {
             case 0:
                 objectToReturn = parentOrganizationList.get(row).getOrgName();
+                break;
+            case 1:
+                objectToReturn = parentOrganizationList.get(row).getMemberCnt();
+                break;
+            case 2:
+                objectToReturn = parentOrganizationList.get(row).getHasSpace();
+                break;
+            case 3:
+                objectToReturn = parentOrganizationList.get(row).getOrgSpace();
                 break;
             default:
                 return null;

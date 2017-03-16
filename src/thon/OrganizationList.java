@@ -22,6 +22,72 @@ public class OrganizationList
     Scanner in;
     ArrayList<Organization> parentOrganizationList;
     Organization newOrganization;
+    final String COMMA_DELIMITER = ",";
+    
+    public OrganizationList()
+    {
+        organizationFileURL = getClass().getResource("THONorganizations.csv");
+        organizationFile = new File(organizationFileURL.getPath());
+        
+        if(parentOrganizationList == null)
+        {
+            readOrganizationFile();
+        }
+    }
+
+    public void readOrganizationFile() 
+    {
+        try
+        {
+            boolean cont = true;
+            in = new Scanner(organizationFile);
+            parentOrganizationList = new ArrayList<>();
+
+            while(cont == true)
+            {
+                if(in.hasNext())
+                {
+                    String temp = in.nextLine();
+                    String[] newOrg = temp.split(COMMA_DELIMITER);
+                    
+                    if (newOrg.length > 0) {
+                        newOrganization = new Organization(newOrg[0], newOrg[1], newOrg[2], newOrg[3]);
+                        parentOrganizationList.add(newOrganization);
+                    }
+                }
+                else
+                {
+                    cont = false;
+                }               
+            }
+            //printParentOrganizationList();
+        }
+        catch(Exception err)
+        {
+            
+            err.printStackTrace();
+        }
+    }
+    
+    public ArrayList<Organization> getParentOrganizationList()
+    {
+        return parentOrganizationList;
+    }
+    
+    public void printParentOrganizationList()
+    {
+        for(int i = 0; i < parentOrganizationList.size(); i++)
+        {
+            System.out.println(parentOrganizationList.get(i).getOrganizationDetails());
+        }
+        System.out.println(parentOrganizationList.size());
+    }
+    /*
+    URL organizationFileURL;
+    File organizationFile;
+    Scanner in;
+    ArrayList<Organization> parentOrganizationList;
+    Organization newOrganization;
     
     public OrganizationList()
     {
@@ -68,4 +134,5 @@ public class OrganizationList
     {
         return parentOrganizationList;
     }
+*/
 }
