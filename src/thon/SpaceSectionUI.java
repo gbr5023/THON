@@ -203,6 +203,8 @@ public class SpaceSectionUI extends javax.swing.JFrame
         currentSpace.setHasOrg(true);
         System.out.println();
         System.out.println(currentSpace.getSpace() + ", Has Org? " + currentSpace.getHasOrg() + ": " + currentSpace.getOrg());
+        
+        this.parentSpaceAssignCntl.updateTableModels();
     }//GEN-LAST:event_assignButtonActionPerformed
     
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed

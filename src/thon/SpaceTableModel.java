@@ -75,4 +75,9 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
         }
         return objectToReturn;
     }
+    
+    public void update()
+    {
+        super.fireTableDataChanged();
+    }
 }

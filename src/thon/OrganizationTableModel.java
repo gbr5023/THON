@@ -76,4 +76,9 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
         }
         return objectToReturn;
     }
+    
+    public void update()
+    {
+        super.fireTableDataChanged();
+    }
 }

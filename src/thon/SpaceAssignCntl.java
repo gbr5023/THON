@@ -43,6 +43,12 @@ public class SpaceAssignCntl
         return theSpaceTableModel;
     }
     
+    public void updateTableModels()
+    {
+        theOrganizationTableModel.update();
+        theSpaceTableModel.update();
+    }
+    
     public void requestSpaceSectionUI()
     {
         theSpaceSection = new SpaceSectionUI(this);
