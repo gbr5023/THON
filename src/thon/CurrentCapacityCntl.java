@@ -16,10 +16,12 @@ public class CurrentCapacityCntl
 {
     NavigationCntl parentNavigationCntl;
     CurrentCapacityUI theCurrentCapacityUI;
+    CurrentCapacityUpdater theCurrentCapacityUpdater;
     
     public CurrentCapacityCntl()
     {
         System.out.println("Made it to the CurrentCapacityCntl");
+        theCurrentCapacityUpdater = new CurrentCapacityUpdater();
     }
     
     public void setNavigationCntl(NavigationCntl newParentNavigationCntl)
