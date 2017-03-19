@@ -5,6 +5,7 @@
  */
 package thon;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -17,7 +18,7 @@ import javax.swing.Timer;
  */
 public class MainMenuUI extends javax.swing.JFrame 
 {
-    private NavigationCntl parentNavigationCntl;
+    private NavigationCntl parentNavigationCntl;    
     
     public MainMenuUI(NavigationCntl newParentNavigationCntl) {
         this.parentNavigationCntl = newParentNavigationCntl;
@@ -64,6 +65,7 @@ public class MainMenuUI extends javax.swing.JFrame
         clockLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         radioButtonGroup.add(spaceAssignRadioButton);
         spaceAssignRadioButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -315,7 +317,7 @@ public class MainMenuUI extends javax.swing.JFrame
         else if(currentCapacitySelected == true)
         {
             this.setVisible(false);
-            parentNavigationCntl.requestCurrentCapacityCntl();
+            parentNavigationCntl.requestCurrentCapacityCntl();    
         }
         else if(thonpassSelected == true)
         {

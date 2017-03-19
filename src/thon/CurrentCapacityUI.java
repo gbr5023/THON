@@ -5,11 +5,21 @@
  */
 package thon;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.Timer;
+
+//Importing the charts API
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -24,7 +34,19 @@ public class CurrentCapacityUI extends javax.swing.JFrame
     public CurrentCapacityUI(CurrentCapacityCntl newCurrentCapacityCntl) 
     {
         this.parentCurrentCapacityCntl = newCurrentCapacityCntl;
+        //Chart Graph code
+        DefaultCategoryDataset data = new DefaultCategoryDataset();
+        data.setValue(2000,"Hour","5");
+        data.setValue(1500,"Hour","6");
+        data.setValue(1000,"Hour","7");
+        JFreeChart chart = ChartFactory.createBarChart("Capacity Graph", "Hour", "People", data, PlotOrientation.VERTICAL, false, true, false);
+        CategoryPlot barChart = chart.getCategoryPlot();
+        barChart.setRangeGridlinePaint(Color.BLUE);
+        ChartPanel barPanel = new ChartPanel(chart);
+        
         initComponents();
+        jPanel1.add(barPanel,BorderLayout.CENTER);
+        jPanel1.validate();
     }
 
     /**
@@ -39,6 +61,11 @@ public class CurrentCapacityUI extends javax.swing.JFrame
         clockLabel = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,31 +104,63 @@ public class CurrentCapacityUI extends javax.swing.JFrame
                 }
             });
 
+            jLabel1.setText("Current Capacity: ");
+
+            jLabel2.setText("Max Capacity:");
+
+            jLabel3.setText("15261");
+
+            jLabel4.setText("jLabel4");
+
+            jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+            jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+            jPanel1.setLayout(new java.awt.BorderLayout());
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(324, Short.MAX_VALUE)
-                    .addComponent(clockLabel)
-                    .addContainerGap())
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(131, 131, 131)
-                    .addComponent(backButton)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(exitButton)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGap(24, 24, 24)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(31, 31, 31)
+                                    .addComponent(jLabel3))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(backButton)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(exitButton)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
+                            .addComponent(clockLabel))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel4))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap())
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(232, Short.MAX_VALUE)
+                    .addGap(23, 23, 23)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel4))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(backButton)
-                        .addComponent(exitButton))
-                    .addGap(18, 18, 18)
-                    .addComponent(clockLabel)
-                    .addContainerGap())
+                        .addComponent(exitButton)
+                        .addComponent(clockLabel))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
             pack();
@@ -154,5 +213,10 @@ public class CurrentCapacityUI extends javax.swing.JFrame
     private javax.swing.JButton backButton;
     private javax.swing.JLabel clockLabel;
     private javax.swing.JButton exitButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

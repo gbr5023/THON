@@ -8,6 +8,8 @@ package thon;
 
 import javax.swing.JFrame;
 
+
+
 /**
  *
  * @author Gisward
@@ -34,9 +36,20 @@ public class CurrentCapacityCntl
         theCurrentCapacityUI = new CurrentCapacityUI(this);
         theCurrentCapacityUI.pack();
         theCurrentCapacityUI.setTitle("Space Assignment");
-        //theCurrentCapacityUI.setSize(800, 600);
         theCurrentCapacityUI.setLocationRelativeTo(null);
         theCurrentCapacityUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         theCurrentCapacityUI.setVisible(true);
     }
+    
+    /*
+    //Chart code
+            DefaultCategoryDataset data = new DefaultCategoryDataset();
+            data.setValue(2000,"Amount","January");
+            data.setValue(2000,"Amount","February");
+            data.setValue(2000,"Amount","March");
+            JFreeChart chart = ChartFactory.createAreaChart("Contribution", "Monthly", "Amount", data, PlotOrientation.VERTICAL, false, true, false);
+            CategoryPlot barChart = chart.getCategoryPlot();
+            barChart.setRangeGridlinePaint(Color.BLUE);
+            ChartPanel barPanel = new ChartPanel(chart);
+    */
 }
