@@ -6,11 +6,8 @@
 
 package thon;
 
-import java.io.File;
-import java.net.URL;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import thon.LoginCntl;
+    import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -31,6 +28,10 @@ public class THON
         }
         
         LoginCntl theLoginCntl = new LoginCntl();
+        long currentTimeMin= System.currentTimeMillis() / 60000;
+        //int currentTimeMin = (int) currentTime;
+        long fromTimeMin = 24829680;
+        System.out.println(currentTimeMin - fromTimeMin );
     }
 
 }
