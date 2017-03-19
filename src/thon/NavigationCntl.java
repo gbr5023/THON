@@ -17,17 +17,13 @@ public class NavigationCntl
     String theUsername;
     MainMenuUI theMainMenu;
     SpaceAssignCntl theSpaceAssignCntl;
-    
-    public NavigationCntl()
-    {
-        System.out.println("Made it to NavigationCntl");
-        requestMainMenuUI();
-        //MainMenu 
-    }
-    
+    CurrentCapacityCntl theCurrentCapacityCntl;
+
     public NavigationCntl(String theUsername)
     {
         System.out.println("Made it to NavigationCntl");
+        this.theSpaceAssignCntl = new SpaceAssignCntl();
+        this.theCurrentCapacityCntl = new CurrentCapacityCntl();
         this.theUsername = theUsername;
         requestMainMenuUI();
         
@@ -50,8 +46,12 @@ public class NavigationCntl
     
     public void requestSpaceAssignCntl()
     {
-        theSpaceAssignCntl = new SpaceAssignCntl();
-        theSpaceAssignCntl.setNavigationCntl(this);
+        this.theSpaceAssignCntl.setNavigationCntl(this);
+    }
+    
+    public void requestCurrentCapacityCntl()
+    {
+        this.theCurrentCapacityCntl.setNavigationCntl(this);
     }
     
     public String getUsername()

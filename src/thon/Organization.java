@@ -27,7 +27,7 @@ public class Organization
         hasSpace = Boolean.valueOf(newHasSpace);
         this.setHasSpace(hasSpace);
         
-        this.setOrgSpace(newSpace);
+        space = newSpace;
     }
     
     public void setOrgName(String newOrgName)
@@ -62,7 +62,14 @@ public class Organization
     
     public void setOrgSpace(String newOrgSpace)
     {
-        space = newOrgSpace;
+        if(space.equals("---"))
+        {
+            space = newOrgSpace;
+        }
+        else
+        {
+            space = space + ", " + newOrgSpace;
+        }
     }
     
     public String getOrgSpace()
@@ -77,46 +84,4 @@ public class Organization
         
         return organizationDetails;
     }
-    /*
-    String name;
-    boolean hasSpace;
-    String space;
-    
-    public Organization(String newName)
-    {
-        name = newName;
-        hasSpace = false;
-        space = "--";
-    }
-    
-    public void setOrgName(String newOrgName)
-    {
-        name = newOrgName;
-    }
-    
-    public String getOrgName()
-    {
-        return name;
-    }
-    
-    public void setOrgSpace(String newOrgSpace)
-    {
-        space = newOrgSpace;
-    }
-    
-    public String getOrgSpace()
-    {
-        return space;
-    }
-    
-    public void setHasSpace(boolean newHasSpaceStatus)
-    {
-        hasSpace = newHasSpaceStatus;
-    }
-    
-    public boolean getHasSpace()
-    {
-        return hasSpace;
-    }
-*/
 }

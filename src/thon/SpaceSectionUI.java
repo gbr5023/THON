@@ -20,13 +20,11 @@ import javax.swing.Timer;
 public class SpaceSectionUI extends javax.swing.JFrame 
 {
     private SpaceAssignCntl parentSpaceAssignCntl;
-    String status;
     private String sortedValue;
         
     public SpaceSectionUI(SpaceAssignCntl newParentSpaceAssignCntl) 
     {
         this.parentSpaceAssignCntl = newParentSpaceAssignCntl;
-        status = "";
         initComponents();
     }
 
@@ -220,7 +218,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
     
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.setVisible(false);
-        parentSpaceAssignCntl.parentNavigationCntl.requestMainMenuUI();
+        this.parentSpaceAssignCntl.parentNavigationCntl.requestMainMenuUI();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void assignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignButtonActionPerformed

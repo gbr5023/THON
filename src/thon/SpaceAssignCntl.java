@@ -16,7 +16,7 @@ import javax.swing.table.TableModel;
  */
 public class SpaceAssignCntl 
 {
-    SpaceSectionUI theSpaceSection;
+    SpaceSectionUI theSpaceSectionUI;
     NavigationCntl parentNavigationCntl;
     OrganizationList theOrganizationList;
     SpaceList theSpaceList;
@@ -27,39 +27,44 @@ public class SpaceAssignCntl
     public SpaceAssignCntl()
     {
         System.out.println("Made it to the SpaceAssignCntl");
+        this.theSpaceList = new SpaceList();
+        this.theOrganizationList = new OrganizationList();
     }
     
     public TableModel getOrganizationTableModel()
     {
-        theOrganizationTableModel = new OrganizationTableModel();
+        theOrganizationTableModel = new OrganizationTableModel(this.theOrganizationList);
         
         return theOrganizationTableModel;
     }
     
     public TableModel getSpaceTableModel()
     {
-        theSpaceTableModel = new SpaceTableModel();
+        theSpaceTableModel = new SpaceTableModel(this.theSpaceList);
         
         return theSpaceTableModel;
     }
     
     public void updateTableModels()
     {
+        //theOrganizationTableModel.setParentOrganizationList();
         theOrganizationTableModel.update();
+        
+        //theSpaceTableModel.setParentSpaceList();
         theSpaceTableModel.update();
     }
     
     public void requestSpaceSectionUI()
     {
-        theSpaceSection = new SpaceSectionUI(this);
-        theSpaceSection.pack();
-        theSpaceSection.setTitle("Space Assignment");
-        theSpaceSection.setSize(800, 600);
-        theSpaceSection.setLocationRelativeTo(null);
-        theSpaceSection.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        theSpaceSection.setVisible(true);
+        theSpaceSectionUI = new SpaceSectionUI(this);
+        theSpaceSectionUI.pack();
+        theSpaceSectionUI.setTitle("Space Assignment");
+        theSpaceSectionUI.setSize(810, 630);
+        theSpaceSectionUI.setLocationRelativeTo(null);
+        theSpaceSectionUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        theSpaceSectionUI.setVisible(true);
     }
-    
+    /*
     public void setOrganizationListClass()//OrganizationList theOrganizationList)
     {
         this.theOrganizationList = theOrganizationTableModel.getTheOrganizationList();
@@ -69,17 +74,16 @@ public class SpaceAssignCntl
     {
         this.theSpaceList = theSpaceTableModel.getTheSpaceList();
     }
+    */
     
     public ArrayList<Organization> getParentOrganizationList()
     {
-        theOrganizationList = new OrganizationList();
-        return theOrganizationList.getParentOrganizationList();
+        return this.theOrganizationList.getParentOrganizationList();
     }
     
     public ArrayList<Space> getParentSpaceList()
     {
-        theSpaceList = new SpaceList();
-        return theSpaceList.getParentSpaceList();
+        return this.theSpaceList.getParentSpaceList();
     }
     
     public void setNavigationCntl(NavigationCntl newParentNavigationCntl)

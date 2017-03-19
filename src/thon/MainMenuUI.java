@@ -266,7 +266,7 @@ public class MainMenuUI extends javax.swing.JFrame
                             .addComponent(exitButton)
                             .addComponent(goButton)
                             .addComponent(exitButton1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(clockLabel)
                 .addContainerGap())
         );

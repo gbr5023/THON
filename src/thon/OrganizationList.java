@@ -23,15 +23,20 @@ public class OrganizationList
     ArrayList<Organization> parentOrganizationList;
     Organization newOrganization;
     final String COMMA_DELIMITER = ",";
+    int readCount = 0;
     
     public OrganizationList()
     {
-        organizationFileURL = getClass().getResource("THONorganizations.csv");
-        organizationFile = new File(organizationFileURL.getPath());
-        
-        if(parentOrganizationList == null)
+        if(readCount == 0)
         {
+            System.out.println("creating new parent organization list");
             readOrganizationFile();
+            readCount++;
+        }
+        else
+        {
+            System.out.println("already created parent organization list.. reading");
+            getParentOrganizationList();
         }
     }
 
@@ -39,6 +44,9 @@ public class OrganizationList
     {
         try
         {
+            organizationFileURL = getClass().getResource("THONorganizations.csv");
+            organizationFile = new File(organizationFileURL.getPath());
+            
             boolean cont = true;
             in = new Scanner(organizationFile);
             parentOrganizationList = new ArrayList<>();
@@ -58,6 +66,7 @@ public class OrganizationList
                 else
                 {
                     cont = false;
+                    System.out.println("Reading org file done.");
                 }               
             }
             //printParentOrganizationList();

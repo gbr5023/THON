@@ -15,12 +15,15 @@ import javax.swing.Timer;
  *
  * @author Gisward
  */
-public class CurrentCapacityUI extends javax.swing.JFrame {
-
+public class CurrentCapacityUI extends javax.swing.JFrame 
+{
+    private CurrentCapacityCntl parentCurrentCapacityCntl;
     /**
      * Creates new form CurrentCapacityUI
      */
-    public CurrentCapacityUI() {
+    public CurrentCapacityUI(CurrentCapacityCntl newCurrentCapacityCntl) 
+    {
+        this.parentCurrentCapacityCntl = newCurrentCapacityCntl;
         initComponents();
     }
 
@@ -34,6 +37,8 @@ public class CurrentCapacityUI extends javax.swing.JFrame {
     private void initComponents() {
 
         clockLabel = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +61,22 @@ public class CurrentCapacityUI extends javax.swing.JFrame {
             clockLabel.setText("");
             clockLabel.setText("");
 
+            backButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            backButton.setText("Back");
+            backButton.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    backButtonActionPerformed(evt);
+                }
+            });
+
+            exitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            exitButton.setText("Exit");
+            exitButton.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    exitButtonActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
@@ -64,11 +85,21 @@ public class CurrentCapacityUI extends javax.swing.JFrame {
                     .addContainerGap(324, Short.MAX_VALUE)
                     .addComponent(clockLabel)
                     .addContainerGap())
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(131, 131, 131)
+                    .addComponent(backButton)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(exitButton)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(275, Short.MAX_VALUE)
+                    .addContainerGap(232, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(backButton)
+                        .addComponent(exitButton))
+                    .addGap(18, 18, 18)
                     .addComponent(clockLabel)
                     .addContainerGap())
             );
@@ -76,14 +107,25 @@ public class CurrentCapacityUI extends javax.swing.JFrame {
             pack();
         }// </editor-fold>//GEN-END:initComponents
 
-    private void tickTock() {
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        this.setVisible(false);
+        this.parentCurrentCapacityCntl.parentNavigationCntl.requestMainMenuUI();
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void tickTock() 
+    {
         clockLabel.setText(DateFormat.getDateTimeInstance().format(new Date()));
     }
     
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -106,16 +148,11 @@ public class CurrentCapacityUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CurrentCapacityUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CurrentCapacityUI().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel clockLabel;
+    private javax.swing.JButton exitButton;
     // End of variables declaration//GEN-END:variables
 }

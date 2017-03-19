@@ -16,25 +16,23 @@ import javax.swing.table.TableModel;
  */
 public class SpaceTableModel extends AbstractTableModel implements TableModel
 {
-    //SpaceAssignCntl parentSpaceAssignCntl;
     SpaceList theSpaceList;
     ArrayList<Space> parentSpaceList;
-    String[] columnSpaceNameArray = {"Space","Current Seat Count", "Has Org?","Org"};
+    String[] columnSpaceNameArray = {"Space","Current Seat Count","Has Org?","Org"};
     
-    public SpaceTableModel()
+    public SpaceTableModel(SpaceList newSpaceList)
     {
-        //parentSpaceAssignCntl = new SpaceAssignCntl();
-        theSpaceList = new SpaceList();
-        parentSpaceList = theSpaceList.getParentSpaceList();
-        //columnSpaceNameArray = {"Space","Current Seat Count", "Has Org?","Org"};
+        this.theSpaceList = newSpaceList;
+        setParentSpaceList();
         //parentSpaceAssignCntl.setSpaceListClass(theSpaceList);       
     }
     
-    public SpaceList getTheSpaceList()
+    public void setParentSpaceList()
     {
-        return this.theSpaceList;
+        parentSpaceList = theSpaceList.getParentSpaceList();
     }
     
+    @Override
     public String getColumnName(int column) 
     {
         return columnSpaceNameArray[column];

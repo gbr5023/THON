@@ -23,15 +23,20 @@ public class SpaceList
     ArrayList<Space> parentSpaceList;
     Space newSpace;
     final String COMMA_DELIMITER = ",";
+    int readCount = 0;
     
     public SpaceList()
     {
-        spaceFileURL = getClass().getResource("SpaceList.csv");
-        spaceFile = new File(spaceFileURL.getPath());
-        
-        if(parentSpaceList == null)
+        if(readCount == 0)
         {
+            System.out.println("creating new parent space list");
             readSpaceFile();
+            readCount++;
+        }
+        else
+        {
+            System.out.println("already created parent space list.. reading");
+            getParentSpaceList();
         }
     }
 
@@ -39,6 +44,9 @@ public class SpaceList
     {
         try
         {
+            spaceFileURL = getClass().getResource("SpaceList.csv");
+            spaceFile = new File(spaceFileURL.getPath());
+            
             boolean cont = true;
             in = new Scanner(spaceFile);
             parentSpaceList = new ArrayList<>();
@@ -58,6 +66,7 @@ public class SpaceList
                 else
                 {
                     cont = false;
+                    System.out.println("Reading space file done.");
                 }               
             }        
             //printParentSpaceList();
@@ -82,57 +91,4 @@ public class SpaceList
         }
         System.out.println(parentSpaceList.size());
     }
-    /*
-    URL spaceFileURL;
-    File spaceFile;
-    Scanner in;
-    ArrayList<Space> parentSpaceList;
-    Space newSpace;
-    
-    public SpaceList()
-    {
-        spaceFileURL = getClass().getResource("SpaceList.txt");
-        spaceFile = new File(spaceFileURL.getPath());
-        
-        if(parentSpaceList == null)
-        {
-            readSpaceFile();
-        }
-    }
-
-    public void readSpaceFile() 
-    {
-        try
-        {
-            boolean cont = true;
-            in = new Scanner(spaceFile);
-            parentSpaceList = new ArrayList<>();
-
-            while(cont == true)
-            {
-                if(in.hasNext())
-                {
-                    String newSpa = in.nextLine();
-                    newSpace = new Space(newSpa);
-                    parentSpaceList.add(newSpace);
-                }
-                else
-                {
-                    cont = false;
-                }               
-            }
-            
-        }
-        catch(Exception err)
-        {
-            
-            err.printStackTrace();
-        }
-    }
-    
-    public ArrayList<Space> getParentSpaceList()
-    {
-        return parentSpaceList;
-    }
-*/
 }
