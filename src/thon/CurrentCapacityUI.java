@@ -28,25 +28,15 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class CurrentCapacityUI extends javax.swing.JFrame 
 {
     private CurrentCapacityCntl parentCurrentCapacityCntl;
+    private String [] days = {"Friday, Saturday, Sunday"};
     /**
      * Creates new form CurrentCapacityUI
      */
     public CurrentCapacityUI(CurrentCapacityCntl newCurrentCapacityCntl) 
     {
         this.parentCurrentCapacityCntl = newCurrentCapacityCntl;
-        //Chart Graph code
-        DefaultCategoryDataset data = new DefaultCategoryDataset();
-        data.setValue(2000,"Hour","5");
-        data.setValue(1500,"Hour","6");
-        data.setValue(1000,"Hour","7");
-        JFreeChart chart = ChartFactory.createBarChart("Capacity Graph", "Hour", "People", data, PlotOrientation.VERTICAL, false, true, false);
-        CategoryPlot barChart = chart.getCategoryPlot();
-        barChart.setRangeGridlinePaint(Color.BLUE);
-        ChartPanel barPanel = new ChartPanel(chart);
-        
         initComponents();
-        jPanel1.add(barPanel,BorderLayout.CENTER);
-        jPanel1.validate();
+        chartGraphic();
     }
 
     /**
@@ -66,6 +56,7 @@ public class CurrentCapacityUI extends javax.swing.JFrame
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +107,13 @@ public class CurrentCapacityUI extends javax.swing.JFrame
             jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
             jPanel1.setLayout(new java.awt.BorderLayout());
 
+            jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Friday", "Saturday", "Sunday",}));
+            jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jComboBox1ActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
@@ -124,23 +122,25 @@ public class CurrentCapacityUI extends javax.swing.JFrame
                     .addGap(24, 24, 24)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(backButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(exitButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(clockLabel)
+                            .addGap(14, 14, 14))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addGap(31, 31, 31)
                                     .addComponent(jLabel3))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(backButton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(exitButton)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
-                            .addComponent(clockLabel))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel4))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap())
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel4))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(37, Short.MAX_VALUE))))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,14 +153,16 @@ public class CurrentCapacityUI extends javax.swing.JFrame
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(jLabel3))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGap(18, 18, 18)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(backButton)
                         .addComponent(exitButton)
                         .addComponent(clockLabel))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap())
             );
 
             pack();
@@ -175,10 +177,79 @@ public class CurrentCapacityUI extends javax.swing.JFrame
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        if(jComboBox1.getSelectedItem().equals("Friday")){
+            chartGraphic();
+        } else if (jComboBox1.getSelectedItem().equals("Saturday")){
+            chartGraphic();
+        } else {
+            chartGraphic();
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     private void tickTock() 
     {
         clockLabel.setText(DateFormat.getDateTimeInstance().format(new Date()));
     }
+
+    //Chart code!!
+    public void chartGraphic(){
+        //If Friday is selected, then...
+        if (jComboBox1.getSelectedItem().equals("Friday")){
+            DefaultCategoryDataset data = new DefaultCategoryDataset();
+            data.setValue(2000,"Hour","5");
+            data.setValue(2500,"Hour","6");
+            data.setValue(3800,"Hour","7");
+            data.setValue(4700,"Hour","8");
+            data.setValue(5500,"Hour","9");
+            data.setValue(6100,"Hour","10");
+            data.setValue(7000,"Hour","11");
+            data.setValue(7800,"Hour","12");
+            JFreeChart chart = ChartFactory.createBarChart("Capacity Graph", "Hour", "People", data, PlotOrientation.VERTICAL, false, true, false);
+            CategoryPlot barChart = chart.getCategoryPlot();
+            barChart.setRangeGridlinePaint(Color.BLUE);
+            ChartPanel barPanel = new ChartPanel(chart);
+            jPanel1.add(barPanel,BorderLayout.CENTER);
+            jPanel1.validate();
+        } 
+        //If Saturday is selected, then...
+        else if (jComboBox1.getSelectedItem().equals("Saturday")){
+            DefaultCategoryDataset data = new DefaultCategoryDataset();
+            data.setValue(0,"Hour","12");
+            data.setValue(0,"Hour","4");
+            data.setValue(0,"Hour","8");
+            data.setValue(0,"Hour","12");
+            data.setValue(0,"Hour","2");
+            data.setValue(0,"Hour","6");
+            data.setValue(0,"Hour","8");
+            data.setValue(0,"Hour","12");
+            JFreeChart chart = ChartFactory.createBarChart("Capacity Graph", "Hour", "People", data, PlotOrientation.VERTICAL, false, true, false);
+            CategoryPlot barChart = chart.getCategoryPlot();
+            barChart.setRangeGridlinePaint(Color.BLUE);
+            ChartPanel barPanel = new ChartPanel(chart);
+            jPanel1.add(barPanel,BorderLayout.CENTER);
+            jPanel1.validate();
+        } 
+        //If Sunday is selected, then...
+        else {
+            DefaultCategoryDataset data = new DefaultCategoryDataset();
+            data.setValue(0,"Hour","12");
+            data.setValue(0,"Hour","4");
+            data.setValue(0,"Hour","8");
+            data.setValue(0,"Hour","12");
+            data.setValue(0,"Hour","2");
+            data.setValue(0,"Hour","6");
+            data.setValue(0,"Hour","8");
+            data.setValue(0,"Hour","12");
+            JFreeChart chart = ChartFactory.createBarChart("Capacity Graph", "Hour", "People", data, PlotOrientation.VERTICAL, false, true, false);
+            CategoryPlot barChart = chart.getCategoryPlot();
+            barChart.setRangeGridlinePaint(Color.BLUE);
+            ChartPanel barPanel = new ChartPanel(chart);
+            jPanel1.add(barPanel,BorderLayout.CENTER);
+            jPanel1.validate();
+        }   
+    }
+    
     
     /**
      * @param args the command line arguments
@@ -213,6 +284,7 @@ public class CurrentCapacityUI extends javax.swing.JFrame
     private javax.swing.JButton backButton;
     private javax.swing.JLabel clockLabel;
     private javax.swing.JButton exitButton;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
