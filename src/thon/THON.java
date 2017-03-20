@@ -28,10 +28,6 @@ public class THON
         }
         
         LoginCntl theLoginCntl = new LoginCntl();
-        long currentTimeMin= System.currentTimeMillis() / 60000;
-        //int currentTimeMin = (int) currentTime;
-        long fromTimeMin = 24829680;
-        System.out.println(currentTimeMin - fromTimeMin );
     }
 
 }

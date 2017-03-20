@@ -29,7 +29,6 @@ public class CurrentCapacityUpdater
     int bjcCapacity = 15261;
     int uniqueCnt = 45000;
     int currentCnt;
-    int committeeCnt = 2000;
     
     public CurrentCapacityUpdater()
     {
@@ -42,13 +41,13 @@ public class CurrentCapacityUpdater
     public void getCurrentSystemTime()
     {
         systemTime = LocalTime.now();
-        System.out.println(systemTime);
+        //System.out.println(systemTime);
     }
     
     public void getCurrentSystemDayNumber()
     {
         date = LocalDate.now();
-        System.out.println(date);
+        //System.out.println(date);
     }
     
     public String convertDayToString()
@@ -85,12 +84,14 @@ public class CurrentCapacityUpdater
         }
     }
     
-    public int calculateCurrentCapacity(String theDay)
+    public void calculateCurrentCapacity(String theDay)
     {
         int maxDay = 15000;
         int maxNight = 12000;
         int minDay = 12000;
         int minNight = 8000;
+        int maxCommitteeCnt = 2000;
+        int minCommitteeCnt = 200;
         Random random = new Random();       
         currentHour = systemTime.getHour();
         currentMin = systemTime.getMinute();
@@ -108,7 +109,7 @@ public class CurrentCapacityUpdater
                 }
                 else
                 {
-                    currentCnt = committeeCnt; //approx. 2000
+                    currentCnt = maxCommitteeCnt; //approx. 2000
                 }
                 break;
             case "Saturday":
@@ -131,13 +132,17 @@ public class CurrentCapacityUpdater
                     currentCnt = bjcCapacity;
                 } else 
                 {
-                    currentCnt = bjcCapacity;
+                     currentCnt = random.nextInt((maxCommitteeCnt - minCommitteeCnt) + 1) + minCommitteeCnt;
                 }
                 break;
             default:
                 break;
         }
-        return currentCnt;
+    }
+    
+    public int getCurrentCapacity()
+    {
+        return this.currentCnt;
     }
     
     /*

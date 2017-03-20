@@ -51,10 +51,10 @@ public class CurrentCapacityUI extends javax.swing.JFrame
         clockLabel = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        currentCapacityLabel = new javax.swing.JLabel();
+        maxCapacityLabel = new javax.swing.JLabel();
+        maxCapacityNumber = new javax.swing.JLabel();
+        currentCapacityNumber = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
 
@@ -95,13 +95,17 @@ public class CurrentCapacityUI extends javax.swing.JFrame
                 }
             });
 
-            jLabel1.setText("Current Capacity: ");
+            currentCapacityLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            currentCapacityLabel.setText("Current Capacity: ");
 
-            jLabel2.setText("Max Capacity:");
+            maxCapacityLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            maxCapacityLabel.setText("Max Capacity:");
 
-            jLabel3.setText("15261");
+            maxCapacityNumber.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            maxCapacityNumber.setText("15261");
 
-            jLabel4.setText("jLabel4");
+            currentCapacityNumber.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            currentCapacityNumber.setText(String.valueOf(parentCurrentCapacityCntl.getCurrentCapacity()));
 
             jPanel1.setBackground(new java.awt.Color(255, 255, 255));
             jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -132,13 +136,13 @@ public class CurrentCapacityUI extends javax.swing.JFrame
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
+                                    .addComponent(maxCapacityLabel)
                                     .addGap(31, 31, 31)
-                                    .addComponent(jLabel3))
+                                    .addComponent(maxCapacityNumber))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
+                                    .addComponent(currentCapacityLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel4))
+                                    .addComponent(currentCapacityNumber))
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addContainerGap(37, Short.MAX_VALUE))))
             );
@@ -147,15 +151,15 @@ public class CurrentCapacityUI extends javax.swing.JFrame
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(23, 23, 23)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel4))
+                        .addComponent(currentCapacityLabel)
+                        .addComponent(currentCapacityNumber))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel3))
+                        .addComponent(maxCapacityLabel)
+                        .addComponent(maxCapacityNumber))
                     .addGap(18, 18, 18)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -283,12 +287,12 @@ public class CurrentCapacityUI extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JLabel clockLabel;
+    private javax.swing.JLabel currentCapacityLabel;
+    private javax.swing.JLabel currentCapacityNumber;
     private javax.swing.JButton exitButton;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel maxCapacityLabel;
+    private javax.swing.JLabel maxCapacityNumber;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,6 +20,9 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     ArrayList<Organization> parentOrganizationList;
     String[] columnOrgNameArray = {"Organization","Member Count","Has Space?","Space"};
 
+    /*
+    single instance of OrganizationList class was created through SpaceAssignCntl
+    */
     public OrganizationTableModel(OrganizationList newOrganizationList)
     {
         this.theOrganizationList = newOrganizationList;
@@ -27,9 +30,17 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
         //parentSpaceAssignCntl.setOrganizationListClass(theOrganizationList);
     }
     
+    /*
+    single instance of arraylist of organizations was created through the single 
+    instance of OrganizationList class (created in the SpaceAssignCntl)
+    */
     public void setParentOrganizationList()
     {
         parentOrganizationList = theOrganizationList.getParentOrganizationList();
+    }
+    
+    public void update() {
+        super.fireTableDataChanged();
     }
     
     @Override //must override original abstract method from AbstractTableModel
@@ -72,10 +83,5 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
                 return null;
         }
         return objectToReturn;
-    }
-    
-    public void update()
-    {
-        super.fireTableDataChanged();
     }
 }

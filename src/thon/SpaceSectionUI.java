@@ -24,10 +24,7 @@ import java.util.ArrayList;
 public class SpaceSectionUI extends javax.swing.JFrame 
 {
     private SpaceAssignCntl parentSpaceAssignCntl;
-//<<<<<<< Updated upstream
-//=======
     private String status;
-//>>>>>>> Stashed changes
     private String sortedValue;
     private OrganizationList parentOrgList;
         
@@ -245,7 +242,6 @@ public class SpaceSectionUI extends javax.swing.JFrame
         currentSpace.setOrg(currentOrg.getOrgName());
         currentSpace.setHasOrg(true);
         currentSpace.setCapacity(currentSpace.getCapacity() - currentOrg.getMemberCnt());
-        System.out.println();
         System.out.println(currentSpace.getSpace() + ", Has Org? " + currentSpace.getHasOrg() + ": " + currentSpace.getOrg());
         
         this.parentSpaceAssignCntl.updateTableModels();

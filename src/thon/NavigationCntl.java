@@ -19,6 +19,11 @@ public class NavigationCntl
     SpaceAssignCntl theSpaceAssignCntl;
     CurrentCapacityCntl theCurrentCapacityCntl;
 
+    /*
+    NavigationCntl creates the sole instance of each of the controller classes
+    and stores these instances. To ensure these instances remain the only one, 
+    this sole instance of NavigationCntl is transferred between controller classes. 
+    */
     public NavigationCntl(String theUsername)
     {
         System.out.println("Made it to NavigationCntl");
@@ -28,12 +33,7 @@ public class NavigationCntl
         requestMainMenuUI();
         
     }
-    
-    public Object getParentNavigationCntl()
-    {
-        return this;
-    }
-    
+
     public void requestMainMenuUI()
     {
         theMainMenu = new MainMenuUI(this);

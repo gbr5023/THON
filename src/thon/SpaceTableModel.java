@@ -20,6 +20,9 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
     ArrayList<Space> parentSpaceList;
     String[] columnSpaceNameArray = {"Space","Current Seat Count","Has Org?","Org"};
     
+    /*
+    single instance of SpaceList class was created through SpaceAssignCntl
+    */
     public SpaceTableModel(SpaceList newSpaceList)
     {
         this.theSpaceList = newSpaceList;
@@ -27,9 +30,17 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
         //parentSpaceAssignCntl.setSpaceListClass(theSpaceList);       
     }
     
+    /*
+    single instance of arraylist of spaces was created through the single 
+    instance of SpaceList class (created in the SpaceAssignCntl)
+    */
     public void setParentSpaceList()
     {
         parentSpaceList = theSpaceList.getParentSpaceList();
+    }
+    
+    public void update() {
+        super.fireTableDataChanged();
     }
     
     @Override
@@ -72,10 +83,5 @@ public class SpaceTableModel extends AbstractTableModel implements TableModel
                 return null;
         }
         return objectToReturn;
-    }
-    
-    public void update()
-    {
-        super.fireTableDataChanged();
     }
 }
