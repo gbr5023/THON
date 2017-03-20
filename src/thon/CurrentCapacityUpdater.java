@@ -33,7 +33,7 @@ public class CurrentCapacityUpdater
     public CurrentCapacityUpdater()
     {
         getCurrentSystemTime();
-        getCurrentSystemDayNumber();
+        getCurrentSystemDate();
         theDay = convertDayToString();
         calculateCurrentCapacity(theDay);
         //calculateElapsedTime();
@@ -44,7 +44,7 @@ public class CurrentCapacityUpdater
         //System.out.println(systemTime);
     }
     
-    public void getCurrentSystemDayNumber()
+    public void getCurrentSystemDate()
     {
         date = LocalDate.now();
         //System.out.println(date);

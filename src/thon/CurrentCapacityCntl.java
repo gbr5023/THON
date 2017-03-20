@@ -46,9 +46,7 @@ public class CurrentCapacityCntl
     
     public int getCurrentCapacity()
     {
-        theCurrentCapacityUpdater = new CurrentCapacityUpdater();
         currentCapacity = theCurrentCapacityUpdater.getCurrentCapacity();
-        
         return currentCapacity;
     }
     
