@@ -1,15 +1,15 @@
 package thon;
 
-//<<<<<<< Updated upstream
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 import javafx.scene.input.DataFormat;
 import javax.swing.Timer;
-//=======
+import java.net.URL;
 import java.util.ArrayList;
-//>>>>>>> Stashed changes
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,13 +24,16 @@ import java.util.ArrayList;
 public class SpaceSectionUI extends javax.swing.JFrame 
 {
     private SpaceAssignCntl parentSpaceAssignCntl;
-    private String status;
-    private String sortedValue;
-    private OrganizationList parentOrgList;
+    private Organization newOrg;
+    private OrganizationList orgList;
+    private OrganizationTableModel tableModel;
+    private ArrayList <Organization> sortedOrgs;
+    private final String COMMA_DELIMITER = ",";
         
     public SpaceSectionUI(SpaceAssignCntl newParentSpaceAssignCntl) 
     {
         this.parentSpaceAssignCntl = newParentSpaceAssignCntl;
+        this.orgList = new OrganizationList();
         initComponents();
     }
 
@@ -147,70 +150,74 @@ public class SpaceSectionUI extends javax.swing.JFrame
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(25, 25, 25)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton1)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
+                            .addGap(25, 25, 25)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(statusLabel)
-                                .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(statusJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton1)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(318, 318, 318)
+                            .addComponent(clockLabel)
+                            .addContainerGap())
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(104, 104, 104)
-                            .addComponent(backButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(assignButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(exitButton)))
-                    .addContainerGap(18, Short.MAX_VALUE))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(clockLabel)
-                    .addContainerGap())
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(backButton)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(assignButton)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(exitButton))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(statusLabel)
+                                    .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(statusJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(49, 49, 49)
+                            .addGap(55, 55, 55)
                             .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(backButton)
                                 .addComponent(assignButton)
                                 .addComponent(exitButton))
-                            .addGap(15, 15, 15)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                             .addComponent(statusLabel)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(statusJLabel))
+                            .addComponent(statusJLabel)
+                            .addGap(32, 32, 32)
+                            .addComponent(clockLabel))
                         .addGroup(layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(searchButton)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(23, 23, 23)
+                            .addGap(18, 18, 18)
                             .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton1)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(clockLabel)
                     .addContainerGap())
             );
 
@@ -248,25 +255,21 @@ public class SpaceSectionUI extends javax.swing.JFrame
     }//GEN-LAST:event_assignButtonActionPerformed
     
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        String lowerCaseSearchString = getOrgSearch().toLowerCase();
+        String lowerCaseSearchString = jTextField1.getText().toLowerCase();
+        ArrayList <Organization> foo = new ArrayList<Organization>();
         String lowerCaseOrgName = "";
         
-//        for(int i = 0; i < parentOrgList.parentOrganizationList.size(); i++) {
-//            lowerCaseOrgName = parentOrgList.parentOrganizationList.get(i);
-//            if (lowerCaseOrgName.contains(lowerCaseSearchString)){
-//               
-//            }
-//        }
-        
-//        for(int i = 0; i < )
-        /*
-        This method would serve as a sorting of the organization is going to occur
-        Logic:
-        while (value grabped in the textField == to the value in the parentOrganizationLoop) {
-            Update the entire organization table;
+        for(int i = 0; i < orgList.parentOrganizationList.size(); i++) {
+            //System.out.println(orgList.parentOrganizationList.get(i).getOrganizationDetails());           
+            lowerCaseOrgName = orgList.parentOrganizationList.get(i).getOrganizationDetails().toLowerCase();
+            //lowerCaseOrgName = orgList.parentOrganizationList.get(i).getOrganizationDetails().toLowerCase();
+            if (lowerCaseOrgName.contains(lowerCaseSearchString)){
+//                org = new Organization([],[],[],[])
+                System.out.println(lowerCaseOrgName);
+                readSortingFile(lowerCaseOrgName);
+                foo = orgList.parentOrganizationList;
+            }
         }
-        */
-//        parentSpaceAssignCntl.parentOrganizationList;
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -280,9 +283,43 @@ public class SpaceSectionUI extends javax.swing.JFrame
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+    
+    private void readSortingFile(String matchingString){
+        try
+        {
+            URL organizationFileURL = getClass().getResource("THONorganizations.csv");
+            File organizationFile = new File(organizationFileURL.getPath());
+            
+            boolean cont = true;
+            Scanner in = new Scanner(organizationFile);
+            ArrayList<Organization>parentOrganizationList = new ArrayList<>();
 
-    public String getOrgSearch() {
-        return jTextField1.getText();
+            while(cont == true)
+            {
+                if(in.hasNext())
+                {
+                    String temp = in.nextLine();
+                    String[] org = temp.split(COMMA_DELIMITER);
+                    
+                    if (org.length > 0 && temp.contains(matchingString)) {
+                        newOrg = new Organization(org[0], org[1], org[2], org[3]);
+                        parentOrganizationList.add(newOrg);
+                    }
+                }
+                else
+                {
+                    cont = false;
+                    System.out.println("Reading org file done.");
+                }               
+            }
+            //printParentOrganizationList();
+        }
+        catch(Exception err)
+        {
+            
+            err.printStackTrace();
+        }
+    
     }
     
     /**

@@ -64,14 +64,12 @@ public class SpaceAssignCntl
     public TableModel getOrganizationTableModel()
     {
         theOrganizationTableModel = new OrganizationTableModel(this.theOrganizationList);
-        
         return theOrganizationTableModel;
     }
     
     public TableModel getSpaceTableModel()
     {
         theSpaceTableModel = new SpaceTableModel(this.theSpaceList);
-        
         return theSpaceTableModel;
     }
     
@@ -84,18 +82,4 @@ public class SpaceAssignCntl
     {
         return this.theSpaceList.getParentSpaceList();
     }
-    
-    
-    
-        /*
-    public void setOrganizationListClass()//OrganizationList theOrganizationList)
-    {
-        this.theOrganizationList = theOrganizationTableModel.getTheOrganizationList();
-    }
-
-    public void setSpaceListClass()//SpaceList theSpaceList)
-    {
-        this.theSpaceList = theSpaceTableModel.getTheSpaceList();
-    }
-    */
 }

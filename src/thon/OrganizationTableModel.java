@@ -27,11 +27,10 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     {
         this.theOrganizationList = newOrganizationList;
         setParentOrganizationList();
-        //parentSpaceAssignCntl.setOrganizationListClass(theOrganizationList);
     }
     
     /*
-    single instance of arraylist of organizations was created through the single 
+    Single instance of arraylist of organizations was created through the single 
     instance of OrganizationList class (created in the SpaceAssignCntl)
     */
     public void setParentOrganizationList()
