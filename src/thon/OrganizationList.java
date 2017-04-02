@@ -21,9 +21,11 @@ public class OrganizationList
     File organizationFile;
     Scanner in;
     ArrayList<Organization> parentOrganizationList;
+    ArrayList<Integer> organizationRowsFound = new ArrayList();
     Organization newOrganization;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
+    int searchedOrgRow = -1;
     
     public OrganizationList()
     {
@@ -81,5 +83,42 @@ public class OrganizationList
     public ArrayList<Organization> getParentOrganizationList()
     {
         return parentOrganizationList;
+    }
+    
+    public boolean searchOrganizationList(String orgToSearch)
+    {
+        boolean searchedOrgFound = false;
+        int orgsFound = 0;
+        
+        orgToSearch = orgToSearch.toLowerCase();
+        
+        for(int i = 0; i < this.parentOrganizationList.size(); i++)
+        {
+            String orgName = this.parentOrganizationList.get(i).getOrgName().toLowerCase();
+            
+            if(orgName.contains(orgToSearch))
+            {
+                orgsFound++;
+                this.organizationRowsFound.add(i);
+            }
+        }    
+        
+        searchedOrgFound = orgsFound > 0;
+        
+        return searchedOrgFound;
+    }
+    
+    public ArrayList<Integer> getListOfOrganizationRowsFound()
+    {
+        return this.organizationRowsFound;
+    }
+    
+    public void printParentOrganizationList()
+    {
+        for(int i = 0; i < parentOrganizationList.size(); i++)
+        {
+            System.out.println(parentOrganizationList.get(i).getOrganizationDetails());
+        }
+        System.out.println(parentOrganizationList.size());
     }
 }

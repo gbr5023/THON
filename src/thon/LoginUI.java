@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
@@ -203,6 +204,7 @@ public class LoginUI extends javax.swing.JFrame {
         {
             System.err.println("User NOT Authenticated.");
             System.err.println("Please enter existing username and password.");
+            JOptionPane.showMessageDialog(null, "User NOT Authenticated. Please enter existing username and password.");
         }        
     }//GEN-LAST:event_submitButtonActionPerformed
 
