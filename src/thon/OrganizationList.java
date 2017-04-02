@@ -22,7 +22,7 @@ public class OrganizationList
     File organizationFile;
     Scanner in;
     ArrayList<Organization> parentOrganizationList;
-    ArrayList<Integer> organizationRowsFound = new ArrayList();
+    ArrayList<Integer> organizationRowsFound;
     Organization newOrganization;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
@@ -90,6 +90,7 @@ public class OrganizationList
     {
         boolean searchedOrgFound;
         int orgsFound = 0;        
+        this.organizationRowsFound = new ArrayList();
         orgToSearch = orgToSearch.toLowerCase();
         
         for(int i = 0; i < this.parentOrganizationList.size(); i++)

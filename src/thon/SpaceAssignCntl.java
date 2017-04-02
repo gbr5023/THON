@@ -95,6 +95,7 @@ public class SpaceAssignCntl
     
     public ArrayList<Integer> getListOfOrganizationRowsFound()
     {
+        //this.organizationRowsFound = new ArrayList();
         this.organizationRowsFound = this.theOrganizationList.getListOfOrganizationRowsFound();
         
         return this.organizationRowsFound;

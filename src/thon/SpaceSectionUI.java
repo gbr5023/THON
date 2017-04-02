@@ -90,6 +90,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
 
         organizationTable.setModel(parentSpaceAssignCntl.getOrganizationTableModel());
         organizationTable.setColumnSelectionAllowed(true);
+        organizationTable.setRowSelectionAllowed(true);
         organizationScrollPane.setViewportView(organizationTable);
         organizationTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         organizationTable.getAccessibleContext().setAccessibleName("");
@@ -252,32 +253,32 @@ public class SpaceSectionUI extends javax.swing.JFrame
     }//GEN-LAST:event_assignButtonActionPerformed
     
     private void searchOrgsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrgsButtonActionPerformed
+        this.organizationTable.repaint();
+        this.parentSpaceAssignCntl.updateTableModels();
+        
         String searchOrgsQuery = searchOrgsTextField.getText();
         boolean searchedOrgFound = this.parentSpaceAssignCntl.requestSearchOrganizationList(searchOrgsQuery);
+        ArrayList<Integer> organizationsFound = new ArrayList();
         
         if(searchedOrgFound == true)
         {
-            ArrayList<Integer> organizationsFound = this.parentSpaceAssignCntl.getListOfOrganizationRowsFound();
+            organizationsFound = this.parentSpaceAssignCntl.getListOfOrganizationRowsFound();
             
             for(int i = 0; i < organizationsFound.size(); i++)
             {
-                if(organizationsFound.size() == 1)
+                for (int col = 0; col < this.organizationTable.getColumnCount(); col++) 
                 {
                     // this will automatically set the view of the scroll in the location of the value
                     this.organizationTable.scrollRectToVisible(this.organizationTable.getCellRect(organizationsFound.get(i), 0, true));
-                
-                    // this will automatically set the focus of the searched/selected row/value
-                    this.organizationTable.setRowSelectionInterval(i, i);
-                }
-                else
-                {
-                    //this.organizationTable.scro
-                    //this.organizationTable.setRowSelectionInterval(organizationsFound.get(0), organizationsFound.get(organizationsFound.size() - 1));
-                }
 
-                for (int j = 0; i < this.organizationTable.getColumnCount(); i++) 
-                {
-                    this.organizationTable.getColumnModel().getColumn(i).setCellRenderer(new SearchHighlightRenderer());
+                    // this will automatically set the focus of the searched/selected row/value
+                    // currently only sets the focus of the last searched/selected row/value
+                    this.organizationTable.setRowSelectionInterval(organizationsFound.get(i), organizationsFound.get(i));
+
+                    for (int j = 0; j < this.organizationTable.getColumnCount(); j++) 
+                    {
+                        this.organizationTable.getColumnModel().getColumn(j).setCellRenderer(new SearchHighlightRenderer());
+                    }
                 }
             }
         }
@@ -285,7 +286,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null, "No organization found matching the search term.");
         }
-        
+        //this.organizationTable.repaint();
         //this.parentSpaceAssignCntl
         
         /*
