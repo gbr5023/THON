@@ -50,6 +50,7 @@ public class THONPassUI extends javax.swing.JFrame {
         entertainmentRadioButton = new javax.swing.JRadioButton();
         arRadioButton = new javax.swing.JRadioButton();
         communicationsRadioButton = new javax.swing.JRadioButton();
+        isAvailablejLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -151,52 +152,58 @@ public class THONPassUI extends javax.swing.JFrame {
         communicationsRadioButton.setForeground(new java.awt.Color(153, 204, 0));
         communicationsRadioButton.setText("Communications");
 
+        isAvailablejLabel.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(backButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NotifyButton)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(drRadioButton)
+                            .addComponent(hosRadioButton)
+                            .addComponent(financeRadioButton)
+                            .addComponent(merchandiseRadioButton)
+                            .addComponent(oPPRadioButton))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spRadioButton)
+                            .addComponent(slRadioButton)
+                            .addComponent(frRadioButton)
+                            .addComponent(prRadioButton)
+                            .addComponent(rrRadioButton)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(37, 37, 37)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(technologyRadioButton)
+                    .addComponent(entertainmentRadioButton)
+                    .addComponent(arRadioButton)
+                    .addComponent(communicationsRadioButton))
+                .addGap(0, 41, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(166, 166, 166)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(drRadioButton)
-                                    .addComponent(hosRadioButton)
-                                    .addComponent(financeRadioButton)
-                                    .addComponent(merchandiseRadioButton)
-                                    .addComponent(oPPRadioButton))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spRadioButton)
-                                    .addComponent(slRadioButton)
-                                    .addComponent(frRadioButton)
-                                    .addComponent(prRadioButton)
-                                    .addComponent(rrRadioButton)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(spaceAvailableLabel)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(currentCapacityLabel)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(currentCapacityNumber))))
-                                .addGap(37, 37, 37)))
+                        .addComponent(currentCapacityLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(technologyRadioButton)
-                            .addComponent(entertainmentRadioButton)
-                            .addComponent(arRadioButton)
-                            .addComponent(communicationsRadioButton))
-                        .addGap(0, 29, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(backButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NotifyButton)))
-                .addContainerGap())
+                        .addComponent(currentCapacityNumber)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(spaceAvailableLabel)
+                        .addGap(25, 25, 25)
+                        .addComponent(isAvailablejLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,8 +213,10 @@ public class THONPassUI extends javax.swing.JFrame {
                     .addComponent(currentCapacityLabel)
                     .addComponent(currentCapacityNumber))
                 .addGap(18, 18, 18)
-                .addComponent(spaceAvailableLabel)
-                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spaceAvailableLabel)
+                    .addComponent(isAvailablejLabel))
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -313,6 +322,7 @@ public class THONPassUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton financeRadioButton;
     private javax.swing.JRadioButton frRadioButton;
     private javax.swing.JRadioButton hosRadioButton;
+    private javax.swing.JLabel isAvailablejLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton merchandiseRadioButton;
     private javax.swing.JRadioButton oPPRadioButton;
