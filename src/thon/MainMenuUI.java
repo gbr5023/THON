@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
@@ -330,6 +331,7 @@ public class MainMenuUI extends javax.swing.JFrame
         else
         {
             System.err.println("Choose a menu option.");
+            JOptionPane.showMessageDialog(null, "Choose a menu option.");
         }
     }//GEN-LAST:event_goButtonActionPerformed
 

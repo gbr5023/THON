@@ -169,25 +169,20 @@ public class SpaceSectionUI extends javax.swing.JFrame
                                     .addComponent(searchSpacesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(searchSpacesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(318, 318, 318)
-                            .addComponent(clockLabel)
-                            .addContainerGap())
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(backButton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(assignButton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(exitButton))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(statusLabel)
-                                    .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(statusJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(backButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(assignButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(exitButton))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(statusLabel)
+                            .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(statusJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(clockLabel))
+                    .addContainerGap(40, Short.MAX_VALUE))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,11 +252,34 @@ public class SpaceSectionUI extends javax.swing.JFrame
     }//GEN-LAST:event_assignButtonActionPerformed
     
     private void searchOrgsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrgsButtonActionPerformed
-        String searchOrgsQuery = searchOrgsTextField.getSelectedText();
+        String searchOrgsQuery = searchOrgsTextField.getText();
+        boolean searchedOrgFound = this.parentSpaceAssignCntl.requestSearchOrganizationList(searchOrgsQuery);
         
-        if(this.parentSpaceAssignCntl.searchOrganizationList(searchOrgsQuery) == true)
+        if(searchedOrgFound == true)
         {
             ArrayList<Integer> organizationsFound = this.parentSpaceAssignCntl.getListOfOrganizationRowsFound();
+            
+            for(int i = 0; i < organizationsFound.size(); i++)
+            {
+                if(organizationsFound.size() == 1)
+                {
+                    // this will automatically set the view of the scroll in the location of the value
+                    this.organizationTable.scrollRectToVisible(this.organizationTable.getCellRect(organizationsFound.get(i), 0, true));
+                
+                    // this will automatically set the focus of the searched/selected row/value
+                    this.organizationTable.setRowSelectionInterval(i, i);
+                }
+                else
+                {
+                    //this.organizationTable.scro
+                    //this.organizationTable.setRowSelectionInterval(organizationsFound.get(0), organizationsFound.get(organizationsFound.size() - 1));
+                }
+
+                for (int j = 0; i < this.organizationTable.getColumnCount(); i++) 
+                {
+                    this.organizationTable.getColumnModel().getColumn(i).setCellRenderer(new SearchHighlightRenderer());
+                }
+            }
         }
         else
         {

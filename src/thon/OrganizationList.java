@@ -10,6 +10,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -85,18 +86,17 @@ public class OrganizationList
         return parentOrganizationList;
     }
     
-    public boolean searchOrganizationList(String orgToSearch)
+    public boolean requestSearchOrganizationList(String orgToSearch)
     {
-        boolean searchedOrgFound = false;
-        int orgsFound = 0;
-        
+        boolean searchedOrgFound;
+        int orgsFound = 0;        
         orgToSearch = orgToSearch.toLowerCase();
         
         for(int i = 0; i < this.parentOrganizationList.size(); i++)
         {
             String orgName = this.parentOrganizationList.get(i).getOrgName().toLowerCase();
             
-            if(orgName.contains(orgToSearch))
+            if(orgName.contains(orgToSearch) || orgName.equalsIgnoreCase(orgToSearch))
             {
                 orgsFound++;
                 this.organizationRowsFound.add(i);
