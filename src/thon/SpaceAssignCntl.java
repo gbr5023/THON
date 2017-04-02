@@ -21,6 +21,7 @@ public class SpaceAssignCntl
     OrganizationList theOrganizationList;
     SpaceList theSpaceList;
     OrganizationTableModel theOrganizationTableModel;
+    OrganizationTableModel sortedOrganizationTableModel;    
     SpaceTableModel theSpaceTableModel;
     
     /*
@@ -65,6 +66,11 @@ public class SpaceAssignCntl
     {
         theOrganizationTableModel = new OrganizationTableModel(this.theOrganizationList);
         return theOrganizationTableModel;
+    }
+    
+    public TableModel getSortedOrganizationTableModel(){
+        sortedOrganizationTableModel = new OrganizationTableModel(this.theOrganizationList);
+        return sortedOrganizationTableModel;
     }
     
     public TableModel getSpaceTableModel()

@@ -27,7 +27,7 @@ public class Organization
         hasSpace = Boolean.valueOf(newHasSpace);
         this.setHasSpace(hasSpace);
         
-        space = newSpace;
+        this.space = newSpace;
     }
     
     public void setOrgName(String newOrgName)

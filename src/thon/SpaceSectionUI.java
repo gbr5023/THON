@@ -10,6 +10,7 @@ import javax.swing.Timer;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,12 +24,11 @@ import java.util.Scanner;
  */
 public class SpaceSectionUI extends javax.swing.JFrame 
 {
-    private SpaceAssignCntl parentSpaceAssignCntl;
-    private Organization newOrg;
-    private OrganizationList orgList;
-    private OrganizationTableModel tableModel;
-    private ArrayList <Organization> sortedOrgs;
-    private final String COMMA_DELIMITER = ",";
+    SpaceAssignCntl parentSpaceAssignCntl;
+    Organization newOrg;
+    OrganizationList orgList;
+    OrganizationTableModel tableModel;
+    ArrayList <Organization> sortedOrgs;
         
     public SpaceSectionUI(SpaceAssignCntl newParentSpaceAssignCntl) 
     {
@@ -36,7 +36,13 @@ public class SpaceSectionUI extends javax.swing.JFrame
         this.orgList = new OrganizationList();
         initComponents();
     }
+    
+    /*
+    Double constructor
+    */
+    public SpaceSectionUI (){
 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -199,7 +205,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
                                 .addComponent(backButton)
                                 .addComponent(assignButton)
                                 .addComponent(exitButton))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(statusLabel)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(statusJLabel)
@@ -255,21 +261,39 @@ public class SpaceSectionUI extends javax.swing.JFrame
     }//GEN-LAST:event_assignButtonActionPerformed
     
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        String lowerCaseSearchString = jTextField1.getText().toLowerCase();
-        ArrayList <Organization> foo = new ArrayList<Organization>();
-        String lowerCaseOrgName = "";
+       
+        tableModel = new OrganizationTableModel(orgList);
+        tableModel = (OrganizationTableModel) parentSpaceAssignCntl.getOrganizationTableModel();
         
+        String searchString = jTextField1.getText().toLowerCase();
+        String lowerCaseOrgName = "";
+        ArrayList<Organization> sortedOrgs = new ArrayList<Organization>();
+//        if (searchString.contains("")) {
+//            return;
+//        } else {
+        tableModel.clear();
         for(int i = 0; i < orgList.parentOrganizationList.size(); i++) {
-            //System.out.println(orgList.parentOrganizationList.get(i).getOrganizationDetails());           
+            System.out.println("Number: " + i);
             lowerCaseOrgName = orgList.parentOrganizationList.get(i).getOrganizationDetails().toLowerCase();
-            //lowerCaseOrgName = orgList.parentOrganizationList.get(i).getOrganizationDetails().toLowerCase();
-            if (lowerCaseOrgName.contains(lowerCaseSearchString)){
-//                org = new Organization([],[],[],[])
+            if (lowerCaseOrgName.contains(searchString)){
                 System.out.println(lowerCaseOrgName);
-                readSortingFile(lowerCaseOrgName);
-                foo = orgList.parentOrganizationList;
+                
+                /*s
+                These variables are placeholders to create the new organization list
+                */
+                String name = orgList.parentOrganizationList.get(i).getOrgName();
+                String space = orgList.parentOrganizationList.get(i).getOrgSpace();
+                boolean hasAspace = orgList.parentOrganizationList.get(i).getHasSpace();
+                String bar = String.valueOf(hasAspace);
+                int memberCount = orgList.parentOrganizationList.get(i).getMemberCnt();
+                String foobar = String.valueOf(memberCount);
+                
+                newOrg = new Organization(name, foobar, bar, space);
+                sortedOrgs.add(newOrg);
             }
+//            }
         }
+        organizationTable.setModel(parentSpaceAssignCntl.sortedOrganizationTableModel);
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -284,42 +308,40 @@ public class SpaceSectionUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
     
-    private void readSortingFile(String matchingString){
-        try
-        {
-            URL organizationFileURL = getClass().getResource("THONorganizations.csv");
-            File organizationFile = new File(organizationFileURL.getPath());
-            
-            boolean cont = true;
-            Scanner in = new Scanner(organizationFile);
-            ArrayList<Organization>parentOrganizationList = new ArrayList<>();
+    /**
+     * @return the sortedOrgs
+     */
+    public ArrayList <Organization> getSortedOrgs() {
+        return sortedOrgs;
+    }
 
-            while(cont == true)
-            {
-                if(in.hasNext())
-                {
-                    String temp = in.nextLine();
-                    String[] org = temp.split(COMMA_DELIMITER);
-                    
-                    if (org.length > 0 && temp.contains(matchingString)) {
-                        newOrg = new Organization(org[0], org[1], org[2], org[3]);
-                        parentOrganizationList.add(newOrg);
-                    }
-                }
-                else
-                {
-                    cont = false;
-                    System.out.println("Reading org file done.");
-                }               
-            }
-            //printParentOrganizationList();
-        }
-        catch(Exception err)
-        {
-            
-            err.printStackTrace();
-        }
+    /**
+     * @param sortedOrgs the sortedOrgs to set
+     */
+    public void setSortedOrgs(ArrayList <Organization> sortedOrgs) {
+        this.sortedOrgs = sortedOrgs;
+    }
     
+    public Object getValueAt(int row, int column){
+        Object objectToReturn = new Object();
+        switch(column)
+        {
+            case 0:
+                objectToReturn = getSortedOrgs().get(row).getOrgName();
+                break;
+            case 1:
+                objectToReturn = getSortedOrgs().get(row).getMemberCnt();
+                break;
+            case 2:
+                objectToReturn = getSortedOrgs().get(row).getHasSpace();
+                break;
+            case 3:
+                objectToReturn = getSortedOrgs().get(row).getOrgSpace();
+                break;
+            default:
+                return null;
+        }
+        return objectToReturn;
     }
     
     /**
@@ -356,15 +378,16 @@ public class SpaceSectionUI extends javax.swing.JFrame
     private javax.swing.JLabel clockLabel;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JScrollPane organizationScrollPane;
     private javax.swing.JTable organizationTable;
-    private javax.swing.JButton searchButton;
+    public javax.swing.JButton searchButton;
     private javax.swing.JLabel spaceMap;
     private javax.swing.JScrollPane spaceSectionScrollPane;
     private javax.swing.JTable spaceTable;
     private javax.swing.JLabel statusJLabel;
     private javax.swing.JLabel statusLabel;
     // End of variables declaration//GEN-END:variables
+
 }

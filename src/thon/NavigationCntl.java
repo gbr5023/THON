@@ -30,8 +30,8 @@ public class NavigationCntl
         this.theSpaceAssignCntl = new SpaceAssignCntl();
         this.theCurrentCapacityCntl = new CurrentCapacityCntl();
         this.theUsername = theUsername;
-        requestMainMenuUI();
-        
+//        requestMainMenuUI();
+        requestSpaceAssignCntl();
     }
 
     public void requestMainMenuUI()

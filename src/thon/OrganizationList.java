@@ -21,6 +21,8 @@ public class OrganizationList
     File organizationFile;
     Scanner in;
     ArrayList<Organization> parentOrganizationList;
+    ArrayList<Organization> sortedOrganizationList;
+    SpaceSectionUI userInput;
     Organization newOrganization;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
@@ -69,13 +71,17 @@ public class OrganizationList
                     System.out.println("Reading org file done.");
                 }               
             }
-            //printParentOrganizationList();
         }
         catch(Exception err)
         {
             
             err.printStackTrace();
         }
+    }
+    
+    public void sortByUserPreference(){
+        userInput = new SpaceSectionUI();
+        String searchString = userInput.jTextField1.getText().toLowerCase();
     }
     
     public ArrayList<Organization> getParentOrganizationList()

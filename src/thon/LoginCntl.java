@@ -22,13 +22,14 @@ public class LoginCntl
     
     public LoginCntl()
     {
-        System.out.println("Made it to LoginCntl");
-        theUserList = new UserList();
-        theLoginUI = new LoginUI(this);
-        theLoginUI.setTitle("Technology Control System Login");
-        theLoginUI.setLocationRelativeTo(null);
-        theLoginUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        theLoginUI.setVisible(true);
+        requestNavigationCntl(theUsername);
+//        System.out.println("Made it to LoginCntl");
+//        theUserList = new UserList();
+//        theLoginUI = new LoginUI(this);
+//        theLoginUI.setTitle("Technology Control System Login");
+//        theLoginUI.setLocationRelativeTo(null);
+//        theLoginUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        theLoginUI.setVisible(true);
     }
     
     public void requestNavigationCntl(String theUsername)

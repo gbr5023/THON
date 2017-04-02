@@ -18,6 +18,8 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
 {
     OrganizationList theOrganizationList;
     ArrayList<Organization> parentOrganizationList;
+    ArrayList<Organization> sortedOrganizationList;
+    
     String[] columnOrgNameArray = {"Organization","Member Count","Has Space?","Space"};
 
     /*
@@ -27,6 +29,7 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     {
         this.theOrganizationList = newOrganizationList;
         setParentOrganizationList();
+        setSortedParentOrganizationList();
     }
     
     /*
@@ -36,6 +39,10 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     public void setParentOrganizationList()
     {
         parentOrganizationList = theOrganizationList.getParentOrganizationList();
+    }
+    
+    public void setSortedParentOrganizationList(){
+    
     }
     
     public void update() {
@@ -53,13 +60,19 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     {
         return parentOrganizationList.size();
     }
+    
+    
+    public void clear(){
+        parentOrganizationList.clear();
+    }
+
 
     @Override
     public int getColumnCount() 
     {
         return columnOrgNameArray.length;
     }
-
+    
     @Override
     public Object getValueAt(int row, int column) 
     {
@@ -82,5 +95,5 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
                 return null;
         }
         return objectToReturn;
-    }
+    }   
 }
