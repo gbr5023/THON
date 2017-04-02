@@ -54,7 +54,7 @@ public class SpaceAssignCntl
         theSpaceSectionUI = new SpaceSectionUI(this);
         theSpaceSectionUI.pack();
         theSpaceSectionUI.setTitle("Space Assignment");
-        theSpaceSectionUI.setSize(810, 630);
+        theSpaceSectionUI.setSize(815, 560);
         theSpaceSectionUI.setLocationRelativeTo(null);
         theSpaceSectionUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         theSpaceSectionUI.setVisible(true);
