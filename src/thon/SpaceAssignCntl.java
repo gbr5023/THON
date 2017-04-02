@@ -21,7 +21,9 @@ public class SpaceAssignCntl
     OrganizationList theOrganizationList;
     SpaceList theSpaceList;
     OrganizationTableModel theOrganizationTableModel;
+    
     OrganizationTableModel sortedOrganizationTableModel;    
+    
     SpaceTableModel theSpaceTableModel;
     ArrayList<Integer> organizationRowsFound;
     
@@ -70,11 +72,6 @@ public class SpaceAssignCntl
         return theOrganizationTableModel;
     }
     
-    public TableModel getSortedOrganizationTableModel(){
-        sortedOrganizationTableModel = new OrganizationTableModel(this.theOrganizationList);
-        return sortedOrganizationTableModel;
-    }
-    
     public TableModel getSpaceTableModel()
     {
         theSpaceTableModel = new SpaceTableModel(this.theSpaceList);
@@ -92,15 +89,15 @@ public class SpaceAssignCntl
         return this.theSpaceList.getParentSpaceList();
     }
     
-    public boolean searchOrganizationList(String orgToSearch)
+    public boolean requestSearchOrganizationList(String orgToSearch)
     {
-        boolean foundOrg = this.theOrganizationList.searchOrganizationList(orgToSearch);
-        
-        return foundOrg;
+        boolean searchedOrgFound = this.theOrganizationList.requestSearchOrganizationList(orgToSearch);
+        return searchedOrgFound;
     }
     
     public ArrayList<Integer> getListOfOrganizationRowsFound()
     {
+        //this.organizationRowsFound = new ArrayList();
         this.organizationRowsFound = this.theOrganizationList.getListOfOrganizationRowsFound();
         
         return this.organizationRowsFound;

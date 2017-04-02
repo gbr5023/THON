@@ -2,20 +2,14 @@ package thon;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-//import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 import javafx.scene.input.DataFormat;
 import javax.swing.Timer;
-//import java.net.URL;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.Scanner;
 import javax.swing.table.DefaultTableModel;
-=======
 import javax.swing.JOptionPane;
-//import java.util.Scanner;
->>>>>>> origin/master
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,36 +23,19 @@ import javax.swing.JOptionPane;
  */
 public class SpaceSectionUI extends javax.swing.JFrame 
 {
-<<<<<<< HEAD
     SpaceAssignCntl parentSpaceAssignCntl;
     Organization newOrg;
     OrganizationList orgList;
     OrganizationTableModel tableModel;
     ArrayList <Organization> sortedOrgs;
-=======
-    private SpaceAssignCntl parentSpaceAssignCntl;
-    /*
-    private Organization newOrg;
-    private OrganizationList orgList;
-    private OrganizationTableModel tableModel;
-    private ArrayList <Organization> sortedOrgs;
-    private final String COMMA_DELIMITER = ",";
-    */
->>>>>>> origin/master
-        
+    
     public SpaceSectionUI(SpaceAssignCntl newParentSpaceAssignCntl) 
     {
         this.parentSpaceAssignCntl = newParentSpaceAssignCntl;
-        //this.orgList = new OrganizationList();
+        this.orgList = new OrganizationList();
         initComponents();
     }
     
-    /*
-    Double constructor
-    */
-    public SpaceSectionUI (){
-
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,6 +86,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
 
         organizationTable.setModel(parentSpaceAssignCntl.getOrganizationTableModel());
         organizationTable.setColumnSelectionAllowed(true);
+        organizationTable.setRowSelectionAllowed(true);
         organizationScrollPane.setViewportView(organizationTable);
         organizationTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         organizationTable.getAccessibleContext().setAccessibleName("");
@@ -188,32 +166,27 @@ public class SpaceSectionUI extends javax.swing.JFrame
                                     .addComponent(searchSpacesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(searchSpacesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(318, 318, 318)
-                            .addComponent(clockLabel)
-                            .addContainerGap())
+                    .addGap(22, 22, 22)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(backButton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(assignButton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(exitButton))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(statusLabel)
-                                    .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(statusJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(backButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(assignButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(exitButton))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(statusLabel)
+                            .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(statusJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(clockLabel))
+                    .addContainerGap(36, Short.MAX_VALUE))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(55, 55, 55)
+                            .addGap(40, 40, 40)
                             .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -224,7 +197,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
                             .addComponent(statusLabel)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(statusJLabel)
-                            .addGap(32, 32, 32)
+                            .addGap(26, 26, 26)
                             .addComponent(clockLabel))
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -239,7 +212,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(searchSpacesButton)
                                 .addComponent(searchSpacesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addContainerGap())
+                    .addGap(10, 10, 10))
             );
 
             pack();
@@ -275,68 +248,45 @@ public class SpaceSectionUI extends javax.swing.JFrame
         this.parentSpaceAssignCntl.updateTableModels();
     }//GEN-LAST:event_assignButtonActionPerformed
     
-<<<<<<< HEAD
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-       
-        tableModel = new OrganizationTableModel(orgList);
-        tableModel = (OrganizationTableModel) parentSpaceAssignCntl.getOrganizationTableModel();
-=======
-    private void searchOrgsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrgsButtonActionPerformed
-        String searchOrgsQuery = searchOrgsTextField.getSelectedText();
+
+    private void searchOrgsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        this.organizationTable.repaint();
+        this.parentSpaceAssignCntl.updateTableModels();
         
-        if(this.parentSpaceAssignCntl.searchOrganizationList(searchOrgsQuery) == true)
+        String searchOrgsQuery = searchOrgsTextField.getText();
+        boolean searchedOrgFound = this.parentSpaceAssignCntl.requestSearchOrganizationList(searchOrgsQuery);
+        ArrayList<Integer> organizationsFound = new ArrayList();
+        
+        if(searchedOrgFound == true)
         {
-            ArrayList<Integer> organizationsFound = this.parentSpaceAssignCntl.getListOfOrganizationRowsFound();
+            organizationsFound = this.parentSpaceAssignCntl.getListOfOrganizationRowsFound();
+            
+            for(int i = 0; i < organizationsFound.size(); i++)
+            {
+                for (int col = 0; col < this.organizationTable.getColumnCount(); col++) 
+                {
+                    // this will automatically set the view of the scroll in the location of the value
+                    this.organizationTable.scrollRectToVisible(this.organizationTable.getCellRect(organizationsFound.get(i), 0, true));
+
+                    // this will automatically set the focus of the searched/selected row/value
+                    // currently only sets the focus of the last searched/selected row/value
+                    this.organizationTable.setRowSelectionInterval(organizationsFound.get(i), organizationsFound.get(i));
+
+                    for (int j = 0; j < this.organizationTable.getColumnCount(); j++) 
+                    {
+                        this.organizationTable.getColumnModel().getColumn(j).setCellRenderer(new SearchHighlightRenderer());
+                    }
+                }
+            }
         }
         else
         {
             JOptionPane.showMessageDialog(null, "No organization found matching the search term.");
         }
-        
+        //this.organizationTable.repaint();
         //this.parentSpaceAssignCntl
-        
-        /*
-        String lowerCaseSearchString = searchOrgsTextField.getText().toLowerCase();
-        ArrayList <Organization> foo = new ArrayList<Organization>();
-        String lowerCaseOrgName = "";
->>>>>>> origin/master
-        
-        String searchString = jTextField1.getText().toLowerCase();
-        String lowerCaseOrgName = "";
-        ArrayList<Organization> sortedOrgs = new ArrayList<Organization>();
-//        if (searchString.contains("")) {
-//            return;
-//        } else {
-        tableModel.clear();
-        for(int i = 0; i < orgList.parentOrganizationList.size(); i++) {
-            System.out.println("Number: " + i);
-            lowerCaseOrgName = orgList.parentOrganizationList.get(i).getOrganizationDetails().toLowerCase();
-            if (lowerCaseOrgName.contains(searchString)){
-                System.out.println(lowerCaseOrgName);
-                
-                /*s
-                These variables are placeholders to create the new organization list
-                */
-                String name = orgList.parentOrganizationList.get(i).getOrgName();
-                String space = orgList.parentOrganizationList.get(i).getOrgSpace();
-                boolean hasAspace = orgList.parentOrganizationList.get(i).getHasSpace();
-                String bar = String.valueOf(hasAspace);
-                int memberCount = orgList.parentOrganizationList.get(i).getMemberCnt();
-                String foobar = String.valueOf(memberCount);
-                
-                newOrg = new Organization(name, foobar, bar, space);
-                sortedOrgs.add(newOrg);
-            }
-//            }
-        }
-<<<<<<< HEAD
-        organizationTable.setModel(parentSpaceAssignCntl.sortedOrganizationTableModel);
-    }//GEN-LAST:event_searchButtonActionPerformed
-=======
-        */
-    }//GEN-LAST:event_searchOrgsButtonActionPerformed
->>>>>>> origin/master
-
+    }
+    
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
@@ -345,60 +295,9 @@ public class SpaceSectionUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_searchSpacesButtonActionPerformed
 
-    private void searchOrgsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrgsTextFieldActionPerformed
+    private void searchOrgsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
-<<<<<<< HEAD
-    }//GEN-LAST:event_jTextField1ActionPerformed
-    
-    /**
-     * @return the sortedOrgs
-     */
-    public ArrayList <Organization> getSortedOrgs() {
-        return sortedOrgs;
-    }
-=======
-    }//GEN-LAST:event_searchOrgsTextFieldActionPerformed
-    /*
-    private void readSortingFile(String matchingString){
-        try
-        {
-            URL organizationFileURL = getClass().getResource("THONorganizations.csv");
-            File organizationFile = new File(organizationFileURL.getPath());
-            
-            boolean cont = true;
-            Scanner in = new Scanner(organizationFile);
-            ArrayList<Organization>parentOrganizationList = new ArrayList<>();
->>>>>>> origin/master
-
-    /**
-     * @param sortedOrgs the sortedOrgs to set
-     */
-    public void setSortedOrgs(ArrayList <Organization> sortedOrgs) {
-        this.sortedOrgs = sortedOrgs;
-    }
-    
-    public Object getValueAt(int row, int column){
-        Object objectToReturn = new Object();
-        switch(column)
-        {
-            case 0:
-                objectToReturn = getSortedOrgs().get(row).getOrgName();
-                break;
-            case 1:
-                objectToReturn = getSortedOrgs().get(row).getMemberCnt();
-                break;
-            case 2:
-                objectToReturn = getSortedOrgs().get(row).getHasSpace();
-                break;
-            case 3:
-                objectToReturn = getSortedOrgs().get(row).getOrgSpace();
-                break;
-            default:
-                return null;
-        }
-        return objectToReturn;
-    }
-    */
+    }                                           
     
     /**
      * @param args the command line arguments
@@ -433,26 +332,16 @@ public class SpaceSectionUI extends javax.swing.JFrame
     private javax.swing.JButton backButton;
     private javax.swing.JLabel clockLabel;
     private javax.swing.JButton exitButton;
-<<<<<<< HEAD
-    private javax.swing.JButton jButton1;
-    public javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JScrollPane organizationScrollPane;
     private javax.swing.JTable organizationTable;
-    public javax.swing.JButton searchButton;
-=======
-    private javax.swing.JScrollPane organizationScrollPane;
-    private javax.swing.JTable organizationTable;
-    private javax.swing.JButton searchOrgsButton;
-    private javax.swing.JTextField searchOrgsTextField;
+    public javax.swing.JButton searchOrgsButton;
+    public javax.swing.JTextField searchOrgsTextField;
     private javax.swing.JButton searchSpacesButton;
     private javax.swing.JTextField searchSpacesTextField;
->>>>>>> origin/master
     private javax.swing.JLabel spaceMap;
     private javax.swing.JScrollPane spaceSectionScrollPane;
     private javax.swing.JTable spaceTable;
     private javax.swing.JLabel statusJLabel;
     private javax.swing.JLabel statusLabel;
     // End of variables declaration//GEN-END:variables
-
 }

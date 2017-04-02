@@ -10,6 +10,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,12 +22,9 @@ public class OrganizationList
     File organizationFile;
     Scanner in;
     ArrayList<Organization> parentOrganizationList;
-<<<<<<< HEAD
     ArrayList<Organization> sortedOrganizationList;
     SpaceSectionUI userInput;
-=======
     ArrayList<Integer> organizationRowsFound = new ArrayList();
->>>>>>> origin/master
     Organization newOrganization;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
@@ -84,28 +82,23 @@ public class OrganizationList
         }
     }
     
-    public void sortByUserPreference(){
-        userInput = new SpaceSectionUI();
-        String searchString = userInput.jTextField1.getText().toLowerCase();
-    }
-    
     public ArrayList<Organization> getParentOrganizationList()
     {
         return parentOrganizationList;
     }
     
-    public boolean searchOrganizationList(String orgToSearch)
+    public boolean requestSearchOrganizationList(String orgToSearch)
     {
-        boolean searchedOrgFound = false;
-        int orgsFound = 0;
-        
+        boolean searchedOrgFound;
+        int orgsFound = 0;        
+        this.organizationRowsFound = new ArrayList();
         orgToSearch = orgToSearch.toLowerCase();
         
         for(int i = 0; i < this.parentOrganizationList.size(); i++)
         {
             String orgName = this.parentOrganizationList.get(i).getOrgName().toLowerCase();
             
-            if(orgName.contains(orgToSearch))
+            if(orgName.contains(orgToSearch) || orgName.equalsIgnoreCase(orgToSearch))
             {
                 orgsFound++;
                 this.organizationRowsFound.add(i);

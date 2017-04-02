@@ -29,7 +29,7 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     {
         this.theOrganizationList = newOrganizationList;
         setParentOrganizationList();
-        setSortedParentOrganizationList();
+//        setSortedParentOrganizationList();
     }
     
     /*
@@ -41,9 +41,9 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
         parentOrganizationList = theOrganizationList.getParentOrganizationList();
     }
     
-    public void setSortedParentOrganizationList(){
-    
-    }
+//    public void setSortedParentOrganizationList(){
+//    
+//    }
     
     public void update() {
         super.fireTableDataChanged();

@@ -219,11 +219,6 @@ public class LoginUI extends javax.swing.JFrame {
         System.exit(0);
     }                                            
 
-    /**
-     * @param args the command line arguments
-     */
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel clockLabel;
     private javax.swing.JButton exitButton;
