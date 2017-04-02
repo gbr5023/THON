@@ -26,6 +26,7 @@ public class SpaceAssignCntl
     
     SpaceTableModel theSpaceTableModel;
     ArrayList<Integer> organizationRowsFound;
+    ArrayList<Integer> spaceRowsFound;
     
     /*
     controller classes now have the sole ability to instantiate model classes and
@@ -95,11 +96,23 @@ public class SpaceAssignCntl
         return searchedOrgFound;
     }
     
+    public boolean requestSearchSpaceList(String spaceToSearch)
+    {
+        boolean searchedSpaceFound = this.theSpaceList.requestSearchSpaceList(spaceToSearch);
+        return searchedSpaceFound;
+    }
+    
     public ArrayList<Integer> getListOfOrganizationRowsFound()
     {
-        //this.organizationRowsFound = new ArrayList();
         this.organizationRowsFound = this.theOrganizationList.getListOfOrganizationRowsFound();
         
         return this.organizationRowsFound;
+    }
+    
+    public ArrayList<Integer> getListOfSpaceRowsFound()
+    {
+        this.spaceRowsFound = this.theSpaceList.getListOfSpaceRowsFound();
+        
+        return this.spaceRowsFound;
     }
 }

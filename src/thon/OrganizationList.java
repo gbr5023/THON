@@ -24,7 +24,7 @@ public class OrganizationList
     ArrayList<Organization> parentOrganizationList;
     ArrayList<Organization> sortedOrganizationList;
     SpaceSectionUI userInput;
-    ArrayList<Integer> organizationRowsFound = new ArrayList();
+    ArrayList<Integer> organizationRowsFound;
     Organization newOrganization;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;

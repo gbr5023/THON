@@ -186,6 +186,7 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
           </AccessibilityProperties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="organizationTable.setCellSelectionEnabled(false);"/>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="SpaceSectionUI_organizationTable"/>
           </AuxValues>
         </Component>

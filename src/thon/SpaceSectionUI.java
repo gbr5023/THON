@@ -87,6 +87,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
         organizationTable.setModel(parentSpaceAssignCntl.getOrganizationTableModel());
         organizationTable.setColumnSelectionAllowed(true);
         organizationTable.setRowSelectionAllowed(true);
+        organizationTable.setCellSelectionEnabled(false);
         organizationScrollPane.setViewportView(organizationTable);
         organizationTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         organizationTable.getAccessibleContext().setAccessibleName("");
@@ -250,32 +251,25 @@ public class SpaceSectionUI extends javax.swing.JFrame
     
 
     private void searchOrgsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        this.organizationTable.repaint();
-        this.parentSpaceAssignCntl.updateTableModels();
-        
-        String searchOrgsQuery = searchOrgsTextField.getText();
+        String searchOrgsQuery = this.searchOrgsTextField.getText();
         boolean searchedOrgFound = this.parentSpaceAssignCntl.requestSearchOrganizationList(searchOrgsQuery);
-        ArrayList<Integer> organizationsFound = new ArrayList();
         
         if(searchedOrgFound == true)
         {
-            organizationsFound = this.parentSpaceAssignCntl.getListOfOrganizationRowsFound();
+            ArrayList<Integer> organizationsFound = this.parentSpaceAssignCntl.getListOfOrganizationRowsFound();
             
             for(int i = 0; i < organizationsFound.size(); i++)
             {
-                for (int col = 0; col < this.organizationTable.getColumnCount(); col++) 
+                // this will automatically set the view of the scroll in the location of the value
+                this.organizationTable.scrollRectToVisible(this.organizationTable.getCellRect(organizationsFound.get(i), organizationsFound.get(i), true));
+
+                // this will automatically set the focus of the searched/selected row/value
+                // currently only sets the focus of the last searched/selected row/value
+                this.organizationTable.setRowSelectionInterval(organizationsFound.get(i), organizationsFound.get(i));
+                    
+                for (int j = 0; j < this.organizationTable.getColumnCount(); j++) 
                 {
-                    // this will automatically set the view of the scroll in the location of the value
-                    this.organizationTable.scrollRectToVisible(this.organizationTable.getCellRect(organizationsFound.get(i), 0, true));
-
-                    // this will automatically set the focus of the searched/selected row/value
-                    // currently only sets the focus of the last searched/selected row/value
-                    this.organizationTable.setRowSelectionInterval(organizationsFound.get(i), organizationsFound.get(i));
-
-                    for (int j = 0; j < this.organizationTable.getColumnCount(); j++) 
-                    {
-                        this.organizationTable.getColumnModel().getColumn(j).setCellRenderer(new SearchHighlightRenderer());
-                    }
+                    this.organizationTable.getColumnModel().getColumn(j).setCellRenderer(new SearchHighlightRenderer());
                 }
             }
         }
@@ -283,8 +277,6 @@ public class SpaceSectionUI extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null, "No organization found matching the search term.");
         }
-        //this.organizationTable.repaint();
-        //this.parentSpaceAssignCntl
     }
     
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -292,7 +284,32 @@ public class SpaceSectionUI extends javax.swing.JFrame
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void searchSpacesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSpacesButtonActionPerformed
-        // TODO add your handling code here:
+        String searchSpacesQuery = this.searchSpacesTextField.getText();
+        boolean searchedSpaceFound = this.parentSpaceAssignCntl.requestSearchSpaceList(searchSpacesQuery);
+        
+        if(searchedSpaceFound == true)
+        {
+            ArrayList<Integer> spacesFound = this.parentSpaceAssignCntl.getListOfSpaceRowsFound();
+            
+            for(int i = 0; i < spacesFound.size(); i++)
+            {
+                // this will automatically set the view of the scroll in the location of the value
+                this.spaceTable.scrollRectToVisible(this.spaceTable.getCellRect(spacesFound.get(i), spacesFound.get(i), true));
+
+                // this will automatically set the focus of the searched/selected row/value
+                // currently only sets the focus of the last searched/selected row/value
+                this.spaceTable.setRowSelectionInterval(spacesFound.get(i), spacesFound.get(i));
+                    
+                for (int j = 0; j < this.spaceTable.getColumnCount(); j++) 
+                {
+                    this.spaceTable.getColumnModel().getColumn(j).setCellRenderer(new SearchHighlightRenderer());
+                }
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "No space found matching the search term.");
+        }
     }//GEN-LAST:event_searchSpacesButtonActionPerformed
 
     private void searchOrgsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                    

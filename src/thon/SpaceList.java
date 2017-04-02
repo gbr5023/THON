@@ -22,6 +22,7 @@ public class SpaceList
     Scanner in;
     ArrayList<Space> parentSpaceList;
     Space newSpace;
+    ArrayList<Integer> spaceRowsFound;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
     
@@ -76,6 +77,34 @@ public class SpaceList
             
             err.printStackTrace();
         }
+    }
+    
+    public boolean requestSearchSpaceList(String spaceToSearch)
+    {
+        boolean searchedSpaceFound;
+        int spacesFound = 0;        
+        this.spaceRowsFound = new ArrayList();
+        spaceToSearch = spaceToSearch.toLowerCase();
+        
+        for(int i = 0; i < this.parentSpaceList.size(); i++)
+        {
+            String spaceName = this.parentSpaceList.get(i).getSpace().toLowerCase();
+            
+            if(spaceName.contains(spaceToSearch) || spaceName.equalsIgnoreCase(spaceToSearch))
+            {
+                spacesFound++;
+                this.spaceRowsFound.add(i);
+            }
+        }    
+        
+        searchedSpaceFound = spacesFound > 0;
+        
+        return searchedSpaceFound;
+    }
+    
+    public ArrayList<Integer> getListOfSpaceRowsFound()
+    {
+        return this.spaceRowsFound;
     }
     
     public ArrayList<Space> getParentSpaceList()
