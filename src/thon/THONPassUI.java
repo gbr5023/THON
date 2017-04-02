@@ -27,21 +27,241 @@ public class THONPassUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        currentCapacityLabel = new javax.swing.JLabel();
+        currentCapacityNumber = new javax.swing.JLabel();
+        NotifyButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        spaceAvailableLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        financeRadioButton = new javax.swing.JRadioButton();
+        hosRadioButton = new javax.swing.JRadioButton();
+        drRadioButton = new javax.swing.JRadioButton();
+        merchandiseRadioButton = new javax.swing.JRadioButton();
+        oPPRadioButton = new javax.swing.JRadioButton();
+        frRadioButton = new javax.swing.JRadioButton();
+        prRadioButton = new javax.swing.JRadioButton();
+        rrRadioButton = new javax.swing.JRadioButton();
+        slRadioButton = new javax.swing.JRadioButton();
+        spRadioButton = new javax.swing.JRadioButton();
+        technologyRadioButton = new javax.swing.JRadioButton();
+        entertainmentRadioButton = new javax.swing.JRadioButton();
+        arRadioButton = new javax.swing.JRadioButton();
+        communicationsRadioButton = new javax.swing.JRadioButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        currentCapacityLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        currentCapacityLabel.setText("Current Capacity:");
+
+        currentCapacityNumber.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        currentCapacityNumber.setText("jLabel2");
+
+        NotifyButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        NotifyButton.setText("Notify");
+        NotifyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NotifyButtonActionPerformed(evt);
+            }
+        });
+
+        backButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
+        spaceAvailableLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        spaceAvailableLabel.setText("Space Available");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("List of Committees");
+
+        financeRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        financeRadioButton.setForeground(new java.awt.Color(0, 153, 51));
+        financeRadioButton.setText("Finance");
+
+        hosRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        hosRadioButton.setForeground(new java.awt.Color(255, 51, 255));
+        hosRadioButton.setText("Hospitality");
+
+        drRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        drRadioButton.setForeground(new java.awt.Color(255, 255, 153));
+        drRadioButton.setText("Dancer Relations");
+
+        merchandiseRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        merchandiseRadioButton.setForeground(new java.awt.Color(255, 153, 204));
+        merchandiseRadioButton.setText("Merchandise");
+
+        oPPRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        oPPRadioButton.setForeground(new java.awt.Color(51, 51, 255));
+        oPPRadioButton.setText("OPPerations");
+        oPPRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oPPRadioButtonActionPerformed(evt);
+            }
+        });
+
+        frRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        frRadioButton.setForeground(new java.awt.Color(102, 204, 255));
+        frRadioButton.setText("Family Relations");
+        frRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frRadioButtonActionPerformed(evt);
+            }
+        });
+
+        prRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        prRadioButton.setForeground(new java.awt.Color(153, 0, 255));
+        prRadioButton.setText("Public Relations");
+
+        rrRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rrRadioButton.setForeground(new java.awt.Color(255, 0, 51));
+        rrRadioButton.setText("Rules and Regulations");
+
+        slRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        slRadioButton.setForeground(new java.awt.Color(102, 255, 102));
+        slRadioButton.setText("Supply Logistics");
+
+        spRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        spRadioButton.setForeground(new java.awt.Color(255, 51, 51));
+        spRadioButton.setText("Special Event");
+
+        technologyRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        technologyRadioButton.setForeground(new java.awt.Color(0, 255, 51));
+        technologyRadioButton.setText("Technology");
+
+        entertainmentRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        entertainmentRadioButton.setText("Entertainment");
+
+        arRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        arRadioButton.setForeground(new java.awt.Color(51, 153, 255));
+        arRadioButton.setText("Alumni Relations");
+        arRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                arRadioButtonActionPerformed(evt);
+            }
+        });
+
+        communicationsRadioButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        communicationsRadioButton.setForeground(new java.awt.Color(153, 204, 0));
+        communicationsRadioButton.setText("Communications");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(drRadioButton)
+                                    .addComponent(hosRadioButton)
+                                    .addComponent(financeRadioButton)
+                                    .addComponent(merchandiseRadioButton)
+                                    .addComponent(oPPRadioButton))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(spRadioButton)
+                                    .addComponent(slRadioButton)
+                                    .addComponent(frRadioButton)
+                                    .addComponent(prRadioButton)
+                                    .addComponent(rrRadioButton)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(spaceAvailableLabel)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(currentCapacityLabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(currentCapacityNumber))))
+                                .addGap(37, 37, 37)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(technologyRadioButton)
+                            .addComponent(entertainmentRadioButton)
+                            .addComponent(arRadioButton)
+                            .addComponent(communicationsRadioButton))
+                        .addGap(0, 29, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NotifyButton)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(currentCapacityLabel)
+                    .addComponent(currentCapacityNumber))
+                .addGap(18, 18, 18)
+                .addComponent(spaceAvailableLabel)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(financeRadioButton)
+                    .addComponent(technologyRadioButton)
+                    .addComponent(frRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hosRadioButton)
+                    .addComponent(entertainmentRadioButton)
+                    .addComponent(prRadioButton))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(drRadioButton)
+                    .addComponent(rrRadioButton)
+                    .addComponent(arRadioButton))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(merchandiseRadioButton)
+                    .addComponent(slRadioButton)
+                    .addComponent(communicationsRadioButton))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(oPPRadioButton)
+                    .addComponent(spRadioButton))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NotifyButton)
+                    .addComponent(backButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void NotifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotifyButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NotifyButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void oPPRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oPPRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oPPRadioButtonActionPerformed
+
+    private void frRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frRadioButtonActionPerformed
+
+    private void arRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_arRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +299,28 @@ public class THONPassUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton NotifyButton;
+    private javax.swing.JRadioButton arRadioButton;
+    private javax.swing.JButton backButton;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JRadioButton communicationsRadioButton;
+    private javax.swing.JLabel currentCapacityLabel;
+    private javax.swing.JLabel currentCapacityNumber;
+    private javax.swing.JRadioButton drRadioButton;
+    private javax.swing.JRadioButton entertainmentRadioButton;
+    private javax.swing.JRadioButton financeRadioButton;
+    private javax.swing.JRadioButton frRadioButton;
+    private javax.swing.JRadioButton hosRadioButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JRadioButton merchandiseRadioButton;
+    private javax.swing.JRadioButton oPPRadioButton;
+    private javax.swing.JRadioButton prRadioButton;
+    private javax.swing.JRadioButton rrRadioButton;
+    private javax.swing.JRadioButton slRadioButton;
+    private javax.swing.JRadioButton spRadioButton;
+    private javax.swing.JLabel spaceAvailableLabel;
+    private javax.swing.JRadioButton technologyRadioButton;
     // End of variables declaration//GEN-END:variables
 }
