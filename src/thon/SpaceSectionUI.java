@@ -2,15 +2,20 @@ package thon;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+//import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 import javafx.scene.input.DataFormat;
 import javax.swing.Timer;
-import java.net.URL;
+//import java.net.URL;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Scanner;
 import javax.swing.table.DefaultTableModel;
+=======
+import javax.swing.JOptionPane;
+//import java.util.Scanner;
+>>>>>>> origin/master
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,16 +29,27 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SpaceSectionUI extends javax.swing.JFrame 
 {
+<<<<<<< HEAD
     SpaceAssignCntl parentSpaceAssignCntl;
     Organization newOrg;
     OrganizationList orgList;
     OrganizationTableModel tableModel;
     ArrayList <Organization> sortedOrgs;
+=======
+    private SpaceAssignCntl parentSpaceAssignCntl;
+    /*
+    private Organization newOrg;
+    private OrganizationList orgList;
+    private OrganizationTableModel tableModel;
+    private ArrayList <Organization> sortedOrgs;
+    private final String COMMA_DELIMITER = ",";
+    */
+>>>>>>> origin/master
         
     public SpaceSectionUI(SpaceAssignCntl newParentSpaceAssignCntl) 
     {
         this.parentSpaceAssignCntl = newParentSpaceAssignCntl;
-        this.orgList = new OrganizationList();
+        //this.orgList = new OrganizationList();
         initComponents();
     }
     
@@ -59,13 +75,13 @@ public class SpaceSectionUI extends javax.swing.JFrame
         spaceTable = new javax.swing.JTable();
         organizationScrollPane = new javax.swing.JScrollPane();
         organizationTable = new javax.swing.JTable();
-        searchButton = new javax.swing.JButton();
+        searchOrgsButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
         statusLabel = new javax.swing.JLabel();
         statusJLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        searchSpacesButton = new javax.swing.JButton();
+        searchOrgsTextField = new javax.swing.JTextField();
+        searchSpacesTextField = new javax.swing.JTextField();
         clockLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,11 +113,11 @@ public class SpaceSectionUI extends javax.swing.JFrame
         organizationTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         organizationTable.getAccessibleContext().setAccessibleName("");
 
-        searchButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        searchButton.setText("Search Organizations");
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
+        searchOrgsButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        searchOrgsButton.setText("Search Organizations");
+        searchOrgsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
+                searchOrgsButtonActionPerformed(evt);
             }
         });
 
@@ -113,23 +129,22 @@ public class SpaceSectionUI extends javax.swing.JFrame
             }
         });
 
-        statusLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         statusLabel.setText("Assign Status:");
 
         statusJLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Search Spaces");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        searchSpacesButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        searchSpacesButton.setText("Search Spaces");
+        searchSpacesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                searchSpacesButtonActionPerformed(evt);
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        searchOrgsTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        searchOrgsTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                searchOrgsTextFieldActionPerformed(evt);
             }
         });
 
@@ -161,18 +176,18 @@ public class SpaceSectionUI extends javax.swing.JFrame
                             .addGap(25, 25, 25)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(searchOrgsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(searchOrgsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(searchSpacesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton1)))))
+                                    .addComponent(searchSpacesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(318, 318, 318)
@@ -216,14 +231,14 @@ public class SpaceSectionUI extends javax.swing.JFrame
                             .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(searchButton)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(searchOrgsButton)
+                                .addComponent(searchOrgsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton1)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(searchSpacesButton)
+                                .addComponent(searchSpacesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addContainerGap())
             );
 
@@ -260,10 +275,31 @@ public class SpaceSectionUI extends javax.swing.JFrame
         this.parentSpaceAssignCntl.updateTableModels();
     }//GEN-LAST:event_assignButtonActionPerformed
     
+<<<<<<< HEAD
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
        
         tableModel = new OrganizationTableModel(orgList);
         tableModel = (OrganizationTableModel) parentSpaceAssignCntl.getOrganizationTableModel();
+=======
+    private void searchOrgsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrgsButtonActionPerformed
+        String searchOrgsQuery = searchOrgsTextField.getSelectedText();
+        
+        if(this.parentSpaceAssignCntl.searchOrganizationList(searchOrgsQuery) == true)
+        {
+            ArrayList<Integer> organizationsFound = this.parentSpaceAssignCntl.getListOfOrganizationRowsFound();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "No organization found matching the search term.");
+        }
+        
+        //this.parentSpaceAssignCntl
+        
+        /*
+        String lowerCaseSearchString = searchOrgsTextField.getText().toLowerCase();
+        ArrayList <Organization> foo = new ArrayList<Organization>();
+        String lowerCaseOrgName = "";
+>>>>>>> origin/master
         
         String searchString = jTextField1.getText().toLowerCase();
         String lowerCaseOrgName = "";
@@ -293,19 +329,25 @@ public class SpaceSectionUI extends javax.swing.JFrame
             }
 //            }
         }
+<<<<<<< HEAD
         organizationTable.setModel(parentSpaceAssignCntl.sortedOrganizationTableModel);
     }//GEN-LAST:event_searchButtonActionPerformed
+=======
+        */
+    }//GEN-LAST:event_searchOrgsButtonActionPerformed
+>>>>>>> origin/master
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void searchSpacesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSpacesButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_searchSpacesButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void searchOrgsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrgsTextFieldActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
     }//GEN-LAST:event_jTextField1ActionPerformed
     
     /**
@@ -314,6 +356,19 @@ public class SpaceSectionUI extends javax.swing.JFrame
     public ArrayList <Organization> getSortedOrgs() {
         return sortedOrgs;
     }
+=======
+    }//GEN-LAST:event_searchOrgsTextFieldActionPerformed
+    /*
+    private void readSortingFile(String matchingString){
+        try
+        {
+            URL organizationFileURL = getClass().getResource("THONorganizations.csv");
+            File organizationFile = new File(organizationFileURL.getPath());
+            
+            boolean cont = true;
+            Scanner in = new Scanner(organizationFile);
+            ArrayList<Organization>parentOrganizationList = new ArrayList<>();
+>>>>>>> origin/master
 
     /**
      * @param sortedOrgs the sortedOrgs to set
@@ -343,6 +398,7 @@ public class SpaceSectionUI extends javax.swing.JFrame
         }
         return objectToReturn;
     }
+    */
     
     /**
      * @param args the command line arguments
@@ -377,12 +433,21 @@ public class SpaceSectionUI extends javax.swing.JFrame
     private javax.swing.JButton backButton;
     private javax.swing.JLabel clockLabel;
     private javax.swing.JButton exitButton;
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
     public javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JScrollPane organizationScrollPane;
     private javax.swing.JTable organizationTable;
     public javax.swing.JButton searchButton;
+=======
+    private javax.swing.JScrollPane organizationScrollPane;
+    private javax.swing.JTable organizationTable;
+    private javax.swing.JButton searchOrgsButton;
+    private javax.swing.JTextField searchOrgsTextField;
+    private javax.swing.JButton searchSpacesButton;
+    private javax.swing.JTextField searchSpacesTextField;
+>>>>>>> origin/master
     private javax.swing.JLabel spaceMap;
     private javax.swing.JScrollPane spaceSectionScrollPane;
     private javax.swing.JTable spaceTable;
