@@ -24,15 +24,14 @@ import javax.swing.JOptionPane;
 public class SpaceSectionUI extends javax.swing.JFrame 
 {
     SpaceAssignCntl parentSpaceAssignCntl;
-    Organization newOrg;
-    OrganizationList orgList;
-    OrganizationTableModel tableModel;
-    ArrayList <Organization> sortedOrgs;
+    //Organization newOrg;
+    //OrganizationList orgList;
+    //OrganizationTableModel tableModel;
+    //ArrayList <Organization> sortedOrgs;
     
     public SpaceSectionUI(SpaceAssignCntl newParentSpaceAssignCntl) 
     {
         this.parentSpaceAssignCntl = newParentSpaceAssignCntl;
-        this.orgList = new OrganizationList();
         initComponents();
     }
     
@@ -236,23 +235,31 @@ public class SpaceSectionUI extends javax.swing.JFrame
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void assignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignButtonActionPerformed
-        int rowOrg = organizationTable.getSelectedRow();
-        int rowSpace = spaceTable.getSelectedRow();
-        
-        Organization currentOrg = parentSpaceAssignCntl.getParentOrganizationList().get(rowOrg);
-        Space currentSpace = parentSpaceAssignCntl.getParentSpaceList().get(rowSpace);
-        
-        currentOrg.setOrgSpace(currentSpace.getSpace());
-        currentOrg.setHasSpace(true);
-        String newStatus = (currentOrg.getOrgName() + ", Has Space? " + currentOrg.getHasSpace() + ": " + currentOrg.getOrgSpace());
-        this.statusJLabel.setText(newStatus);
-        
-        currentSpace.setOrg(currentOrg.getOrgName());
-        currentSpace.setHasOrg(true);
-        currentSpace.setCapacity(currentSpace.getCapacity() - currentOrg.getMemberCnt());
-        System.out.println(currentSpace.getSpace() + ", Has Org? " + currentSpace.getHasOrg() + ": " + currentSpace.getOrg());
-        
-        this.parentSpaceAssignCntl.updateTableModels();
+        try
+        {
+            int rowOrg = organizationTable.getSelectedRow();
+            int rowSpace = spaceTable.getSelectedRow();
+
+            Organization currentOrg = parentSpaceAssignCntl.getParentOrganizationList().get(rowOrg);
+            Space currentSpace = parentSpaceAssignCntl.getParentSpaceList().get(rowSpace);
+
+            currentOrg.setOrgSpace(currentSpace.getSpace());
+            currentOrg.setHasSpace(true);
+            String newStatus = (currentOrg.getOrgName() + ", Has Space? " + currentOrg.getHasSpace() + ": " + currentOrg.getOrgSpace());
+            this.statusJLabel.setText(newStatus);
+
+            currentSpace.setOrg(currentOrg.getOrgName());
+            currentSpace.setHasOrg(true);
+            currentSpace.setCapacity(currentSpace.getCapacity() - currentOrg.getMemberCnt());
+            System.out.println(currentSpace.getSpace() + ", Has Org? " + currentSpace.getHasOrg() + ": " + currentSpace.getOrg());
+
+            this.parentSpaceAssignCntl.updateTableModels();
+        }
+        catch(ArrayIndexOutOfBoundsException err)
+        {
+            System.err.println("Choose an organization and a space to assign to it.");
+            JOptionPane.showMessageDialog(null, "Choose an organization and a space in the tables.");
+        }
     }//GEN-LAST:event_assignButtonActionPerformed
     
 

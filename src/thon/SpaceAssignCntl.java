@@ -21,9 +21,7 @@ public class SpaceAssignCntl
     OrganizationList theOrganizationList;
     SpaceList theSpaceList;
     OrganizationTableModel theOrganizationTableModel;
-    
-    OrganizationTableModel sortedOrganizationTableModel;    
-    
+    //OrganizationTableModel sortedOrganizationTableModel;    
     SpaceTableModel theSpaceTableModel;
     ArrayList<Integer> organizationRowsFound;
     ArrayList<Integer> spaceRowsFound;

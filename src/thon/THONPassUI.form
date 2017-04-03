@@ -31,13 +31,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="backButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="NotifyButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -59,18 +52,18 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="listOfCommitteesLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="13" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="technologyRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="entertainmentRadioButton" min="-2" max="-2" attributes="0"/>
                   <Component id="arRadioButton" min="-2" max="-2" attributes="0"/>
                   <Component id="communicationsRadioButton" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="41" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
@@ -78,16 +71,31 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="currentCapacityLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="currentCapacityNumber" min="-2" max="-2" attributes="0"/>
+                      <Component id="currentCapacityNumberLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="spaceAvailableLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="isAvailablejLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="isAvailableLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="backButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Component id="notifyButton" min="-2" pref="69" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Component id="exitButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="clockLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,15 +105,15 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="currentCapacityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="currentCapacityNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="currentCapacityNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="spaceAvailableLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="isAvailablejLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="isAvailableLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="listOfCommitteesLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="financeRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -136,9 +144,16 @@
                   <Component id="spRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="NotifyButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="backButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="notifyButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="backButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="clockLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="exitButton" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -154,15 +169,17 @@
         <Property name="text" type="java.lang.String" value="Current Capacity:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="currentCapacityNumber">
+    <Component class="javax.swing.JLabel" name="currentCapacityNumberLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="String.valueOf(this.parentTHONPassCntl.getCurrentCapacity())" type="code"/>
+        </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="NotifyButton">
+    <Component class="javax.swing.JButton" name="notifyButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
@@ -170,7 +187,7 @@
         <Property name="text" type="java.lang.String" value="Notify"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NotifyButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="notifyButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="backButton">
@@ -192,7 +209,7 @@
         <Property name="text" type="java.lang.String" value="Space Available"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="listOfCommitteesLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
@@ -203,7 +220,7 @@
     <Component class="javax.swing.JRadioButton" name="financeRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="99" red="0" type="rgb"/>
@@ -214,10 +231,10 @@
     <Component class="javax.swing.JRadioButton" name="hosRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="33" red="ff" type="rgb"/>
+          <Color blue="cc" green="0" red="cc" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Hospitality"/>
       </Properties>
@@ -225,10 +242,10 @@
     <Component class="javax.swing.JRadioButton" name="drRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="ff" red="ff" type="rgb"/>
+          <Color blue="0" green="99" red="99" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Dancer Relations"/>
       </Properties>
@@ -236,10 +253,10 @@
     <Component class="javax.swing.JRadioButton" name="merchandiseRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="99" red="ff" type="rgb"/>
+          <Color blue="cc" green="33" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Merchandise"/>
       </Properties>
@@ -247,7 +264,7 @@
     <Component class="javax.swing.JRadioButton" name="oPPRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="33" red="33" type="rgb"/>
@@ -261,10 +278,10 @@
     <Component class="javax.swing.JRadioButton" name="frRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="cc" red="66" type="rgb"/>
+          <Color blue="cc" green="cc" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Family Relations"/>
       </Properties>
@@ -275,7 +292,7 @@
     <Component class="javax.swing.JRadioButton" name="prRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="0" red="99" type="rgb"/>
@@ -286,7 +303,7 @@
     <Component class="javax.swing.JRadioButton" name="rrRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -297,10 +314,10 @@
     <Component class="javax.swing.JRadioButton" name="slRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="ff" red="66" type="rgb"/>
+          <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Supply Logistics"/>
       </Properties>
@@ -308,10 +325,10 @@
     <Component class="javax.swing.JRadioButton" name="spRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="ff" type="rgb"/>
+          <Color blue="0" green="66" red="cc" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Special Event"/>
       </Properties>
@@ -319,10 +336,10 @@
     <Component class="javax.swing.JRadioButton" name="technologyRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="ff" red="0" type="rgb"/>
+          <Color blue="0" green="cc" red="33" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Technology"/>
       </Properties>
@@ -330,7 +347,7 @@
     <Component class="javax.swing.JRadioButton" name="entertainmentRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Entertainment"/>
       </Properties>
@@ -338,7 +355,7 @@
     <Component class="javax.swing.JRadioButton" name="arRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="33" type="rgb"/>
@@ -352,18 +369,47 @@
     <Component class="javax.swing.JRadioButton" name="communicationsRadioButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="cc" red="99" type="rgb"/>
+          <Color blue="0" green="99" red="66" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Communications"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="isAvailablejLabel">
+    <Component class="javax.swing.JLabel" name="isAvailableLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="&quot;&quot;" type="code"/>
+        </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="String spaceAvailable;&#xa;&#xa;if(this.parentTHONPassCntl.currentCapacity &lt; 15261)&#xa;{&#xa;    spaceAvailable = &quot;true&quot;;&#xa;    this.isAvailableLabel.setText(spaceAvailable);&#xa;}&#xa;else&#xa;{&#xa;    spaceAvailable = &quot;false&quot;;&#xa;    this.isAvailableLabel.setText(spaceAvailable);&#xa;}"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="clockLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="&quot;&quot;" type="code"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="clockLabel.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 14));&#xa;tickTock();&#xa;Timer timer = new Timer(500, new ActionListener() &#xa;{&#xa;    @Override&#xa;    public void actionPerformed(ActionEvent e) &#xa;    {&#xa;        tickTock();&#xa;    }        &#xa;});&#xa;&#xa;        &#xa;timer.setRepeats(true);&#xa;timer.setCoalesce(true);&#xa;timer.setInitialDelay(0);        &#xa;timer.start();"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="exitButton">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Exit"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
