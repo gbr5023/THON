@@ -48,7 +48,6 @@ public class MainMenuUI extends javax.swing.JFrame
         currentCapacityRadioButton = new javax.swing.JRadioButton();
         thonraiserRadioButton = new javax.swing.JRadioButton();
         thonpassRadioButton = new javax.swing.JRadioButton();
-        userIconLabel = new javax.swing.JLabel();
         chooseLabel = new javax.swing.JLabel();
         userTitleLabel = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
@@ -64,12 +63,13 @@ public class MainMenuUI extends javax.swing.JFrame
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         clockLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         radioButtonGroup.add(spaceAssignRadioButton);
-        spaceAssignRadioButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         spaceAssignRadioButton.setText("Space Assignment");
         spaceAssignRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,26 +78,19 @@ public class MainMenuUI extends javax.swing.JFrame
         });
 
         radioButtonGroup.add(currentCapacityRadioButton);
-        currentCapacityRadioButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         currentCapacityRadioButton.setText("Current THON Capacity");
 
         radioButtonGroup.add(thonraiserRadioButton);
-        thonraiserRadioButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         thonraiserRadioButton.setText("THONraiser");
 
         radioButtonGroup.add(thonpassRadioButton);
-        thonpassRadioButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         thonpassRadioButton.setText("THONPass");
 
-        userIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thon/myimage/user-alt-128.png"))); // NOI18N
-
-        chooseLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         chooseLabel.setText("Tasks:");
 
         userTitleLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         userTitleLabel.setText("User:");
 
-        exitButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         exitButton.setText("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +98,6 @@ public class MainMenuUI extends javax.swing.JFrame
             }
         });
 
-        goButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         goButton.setText("Go");
         goButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,19 +105,19 @@ public class MainMenuUI extends javax.swing.JFrame
             }
         });
 
-        userTitleLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         userTitleLabel1.setText("Position:");
 
-        userTitleLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         userTitleLabel2.setText("Shifts:");
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {"Pass Control", "Friday: 4 pm - 7 pm"},
+                {"Concession", "Saturday: 12 am - 4 am"},
+                {"Floor Control", "Saturday: 8 am - 12 pm"},
+                {"Concession", "Saturday: 12pm - 4 pm"},
+                {"Pass Control", "Saturday: 8 pm - 12 am"},
+                {"Floor Control", "Sunday: 6 am - 12 pm"}
             },
             new String [] {
                 "Position", "Time"
@@ -133,10 +125,8 @@ public class MainMenuUI extends javax.swing.JFrame
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        userTitleLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         userTitleLabel3.setText("Contact:");
 
-        exitButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         exitButton1.setText("Edit");
         exitButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +136,8 @@ public class MainMenuUI extends javax.swing.JFrame
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField1.setText("617-899-1629");
         jTextField1.setEnabled(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +163,10 @@ public class MainMenuUI extends javax.swing.JFrame
         timer.start();
         clockLabel.setText("");
 
+        jLabel3.setText("Website Manager");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thon/myimage/edProfilePicture.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,53 +174,61 @@ public class MainMenuUI extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(userTitleLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)
-                                .addGap(30, 30, 30))
+                                .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(exitButton1)
+                                        .addGap(246, 246, 246))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(userTitleLabel2)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(14, 14, 14)
-                                                .addComponent(exitButton1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(108, 108, 108))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(userTitleLabel2)
-                                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(userTitleLabel1)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(userTitleLabel3)
-                                                        .addGap(4, 4, 4)
-                                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(18, 18, 18)))
-                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(userIconLabel))
-                                .addGap(18, 18, 18)))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(userTitleLabel3)
+                                                    .addComponent(userTitleLabel1))
+                                                .addGap(2, 2, 2)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel3)
+                                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(18, 18, 18)))
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(exitButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(goButton))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(currentCapacityRadioButton)
                                 .addComponent(thonpassRadioButton)
                                 .addComponent(thonraiserRadioButton))
-                            .addComponent(spaceAssignRadioButton, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chooseLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(clockLabel)))
+                            .addComponent(chooseLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(spaceAssignRadioButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(clockLabel))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(exitButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(goButton)))))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,15 +237,17 @@ public class MainMenuUI extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userTitleLabel)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userIconLabel)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(userTitleLabel1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(userTitleLabel1)
+                                    .addComponent(jLabel3))
                                 .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(userTitleLabel3)
@@ -251,8 +256,7 @@ public class MainMenuUI extends javax.swing.JFrame
                                 .addComponent(userTitleLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
+                        .addGap(6, 6, 6))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(chooseLabel)
@@ -269,9 +273,10 @@ public class MainMenuUI extends javax.swing.JFrame
                             .addComponent(exitButton)
                             .addComponent(goButton)
                             .addComponent(exitButton1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(clockLabel)
-                .addContainerGap())
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1))
         );
 
         pack();
@@ -387,6 +392,8 @@ public class MainMenuUI extends javax.swing.JFrame
     private javax.swing.JButton goButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
@@ -395,7 +402,6 @@ public class MainMenuUI extends javax.swing.JFrame
     private javax.swing.JRadioButton spaceAssignRadioButton;
     private javax.swing.JRadioButton thonpassRadioButton;
     private javax.swing.JRadioButton thonraiserRadioButton;
-    private javax.swing.JLabel userIconLabel;
     private javax.swing.JLabel userTitleLabel;
     private javax.swing.JLabel userTitleLabel1;
     private javax.swing.JLabel userTitleLabel2;
