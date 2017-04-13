@@ -7,6 +7,7 @@
 package thon;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -75,10 +76,14 @@ public class OrganizationList
                 }               
             }
         }
+        catch(FileNotFoundException fnfe)
+        {
+            System.out.println(fnfe.getMessage());
+        }
         catch(Exception err)
         {
             
-            err.printStackTrace();
+            System.out.println(err.getMessage());
         }
     }
     
