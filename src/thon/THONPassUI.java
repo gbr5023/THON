@@ -73,7 +73,6 @@ public class THONPassUI extends javax.swing.JFrame
         currentCapacityNumberLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         currentCapacityNumberLabel.setText(String.valueOf(this.parentTHONPassCntl.getCurrentCapacity()));
 
-        notifyButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         notifyButton.setText("Notify");
         notifyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +80,6 @@ public class THONPassUI extends javax.swing.JFrame
             }
         });
 
-        backButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +178,7 @@ public class THONPassUI extends javax.swing.JFrame
             this.isAvailableLabel.setText(spaceAvailable);
         }
 
+        clockLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         clockLabel.setText("");
         clockLabel.setFont(new java.awt.Font("Tahoma", 0, 14));
         tickTock();
@@ -197,7 +196,6 @@ public class THONPassUI extends javax.swing.JFrame
             timer.setInitialDelay(0);
             timer.start();
 
-            exitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
             exitButton.setText("Exit");
             exitButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,22 +248,24 @@ public class THONPassUI extends javax.swing.JFrame
                             .addComponent(isAvailableLabel)
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(0, 446, Short.MAX_VALUE)
+                            .addComponent(clockLabel))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(backButton)
-                            .addGap(1, 1, 1)
-                            .addComponent(notifyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(1, 1, 1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(notifyButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(exitButton)
-                            .addGap(10, 10, 10))
-                        .addComponent(clockLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGap(150, 150, 150)))
                     .addContainerGap())
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(currentCapacityLabel)
                         .addComponent(currentCapacityNumberLabel))
@@ -300,15 +300,13 @@ public class THONPassUI extends javax.swing.JFrame
                         .addComponent(oPPRadioButton)
                         .addComponent(spRadioButton))
                     .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(notifyButton)
-                                .addComponent(backButton))
-                            .addGap(18, 18, 18)
-                            .addComponent(clockLabel))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(notifyButton)
+                        .addComponent(backButton)
                         .addComponent(exitButton))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(clockLabel)
+                    .addGap(9, 9, 9))
             );
 
             pack();
@@ -335,6 +333,20 @@ public class THONPassUI extends javax.swing.JFrame
         boolean alumniRelationsSelected = this.arRadioButton.isSelected();
         boolean communicationsSelected = this.communicationsRadioButton.isSelected();
         
+        if(financeSelected || hospitalitySelected || dancerRelationsSelected || merchandiseSelected
+                || opperationsSelected || familyRelationsSelected || publicRelationsSelected
+                || rulesRegulationsSelected || supplyLogisticsSelected || specialEventSelected
+                || technologySelected || entertainmentSelected || alumniRelationsSelected 
+                || communicationsSelected)    
+        {
+            JOptionPane.showMessageDialog(null, "Notified.");
+        }
+        else 
+        {
+            System.err.println("Choose a committee option.");
+            JOptionPane.showMessageDialog(null, "Choose a committee option.");
+        }
+        /*
         if(financeSelected == true)
         {
             System.err.println("Finance Committee notified.");
@@ -410,10 +422,11 @@ public class THONPassUI extends javax.swing.JFrame
             System.err.println("Choose a committee option.");
             JOptionPane.showMessageDialog(null, "Choose a committee option.");
         }
+        */
     }//GEN-LAST:event_notifyButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:this.setVisible(false);
+        this.setVisible(false);
         this.parentTHONPassCntl.parentNavigationCntl.requestMainMenuUI();
     }//GEN-LAST:event_backButtonActionPerformed
 
