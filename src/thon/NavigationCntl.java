@@ -19,6 +19,7 @@ public class NavigationCntl
     SpaceAssignCntl theSpaceAssignCntl;
     CurrentCapacityCntl theCurrentCapacityCntl;
     THONPassCntl theTHONPassCntl;
+    THONRaiserCntl theTHONRaiserCntl;
 
     /*
     NavigationCntl creates the sole instance of each of the controller classes
@@ -31,6 +32,7 @@ public class NavigationCntl
         this.theSpaceAssignCntl = new SpaceAssignCntl();
         this.theCurrentCapacityCntl = new CurrentCapacityCntl();
         this.theTHONPassCntl = new THONPassCntl();
+        this.theTHONRaiserCntl = new THONRaiserCntl();
         this.theUsername = theUsername;
         this.requestMainMenuUI();
     }
@@ -58,6 +60,11 @@ public class NavigationCntl
     public void requestTHONPassCntl()
     {
         this.theTHONPassCntl.setNavigationCntl(this);
+    }
+    
+    public void requestTHONRaiserCntl()
+    {
+        this.theTHONRaiserCntl.setNavigationCntl(this);
     }
     
     public String getUsername()

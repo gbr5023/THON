@@ -326,7 +326,8 @@ public class MainMenuUI extends javax.swing.JFrame
         }
         else if(thonraiserSelected == true)
         {
-            
+            this.setVisible(false);
+            parentNavigationCntl.requestTHONRaiserCntl();
         }
         else
         {

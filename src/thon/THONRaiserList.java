@@ -60,7 +60,7 @@ public class THONRaiserList
                     System.out.println("Reading THONRaiser file done.");
                 }
             }
-            printParentTHONRaiserList();
+            //printParentTHONRaiserList();
         } catch (FileNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
         } catch (Exception err) {

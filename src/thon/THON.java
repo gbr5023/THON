@@ -27,7 +27,6 @@ public class THON
             System.out.println(ex.getMessage());
         }
         
-        //LoginCntl theLoginCntl = new LoginCntl();
-        THONRaiserList test = new THONRaiserList();
+        LoginCntl theLoginCntl = new LoginCntl();
     }
 }
