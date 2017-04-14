@@ -67,10 +67,9 @@ public class THONPassUI extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        currentCapacityLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        currentCapacityLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         currentCapacityLabel.setText("Current Capacity:");
 
-        currentCapacityNumberLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         currentCapacityNumberLabel.setText(String.valueOf(this.parentTHONPassCntl.getCurrentCapacity()));
 
         notifyButton.setText("Notify");
@@ -87,10 +86,10 @@ public class THONPassUI extends javax.swing.JFrame
             }
         });
 
-        spaceAvailableLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        spaceAvailableLabel.setText("Space Available");
+        spaceAvailableLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        spaceAvailableLabel.setText("Space Available: ");
 
-        listOfCommitteesLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        listOfCommitteesLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         listOfCommitteesLabel.setText("List of Committees");
 
         financeRadioButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -163,7 +162,6 @@ public class THONPassUI extends javax.swing.JFrame
         communicationsRadioButton.setForeground(new java.awt.Color(102, 153, 0));
         communicationsRadioButton.setText("Communications");
 
-        isAvailableLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         isAvailableLabel.setText("");
         String spaceAvailable;
 
@@ -207,9 +205,14 @@ public class THONPassUI extends javax.swing.JFrame
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(clockLabel)
+                    .addContainerGap())
                 .addGroup(layout.createSequentialGroup()
                     .addGap(22, 22, 22)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(listOfCommitteesLabel)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(drRadioButton)
@@ -223,44 +226,32 @@ public class THONPassUI extends javax.swing.JFrame
                                 .addComponent(slRadioButton)
                                 .addComponent(frRadioButton)
                                 .addComponent(prRadioButton)
-                                .addComponent(rrRadioButton)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(listOfCommitteesLabel)
-                            .addGap(37, 37, 37)))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                .addComponent(rrRadioButton))))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(technologyRadioButton)
                         .addComponent(entertainmentRadioButton)
                         .addComponent(arRadioButton)
                         .addComponent(communicationsRadioButton))
-                    .addGap(0, 12, Short.MAX_VALUE))
+                    .addGap(0, 25, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(166, 166, 166)
+                    .addGap(183, 183, 183)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(currentCapacityLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(currentCapacityNumberLabel)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(spaceAvailableLabel)
-                            .addGap(25, 25, 25)
-                            .addComponent(isAvailableLabel)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(0, 446, Short.MAX_VALUE)
-                            .addComponent(clockLabel))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(backButton)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(notifyButton)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(exitButton)
-                            .addGap(150, 150, 150)))
-                    .addContainerGap())
+                            .addComponent(exitButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(currentCapacityLabel)
+                                .addComponent(spaceAvailableLabel))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(isAvailableLabel)
+                                .addComponent(currentCapacityNumberLabel))))
+                    .addGap(0, 0, Short.MAX_VALUE))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,9 +264,9 @@ public class THONPassUI extends javax.swing.JFrame
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(spaceAvailableLabel)
                         .addComponent(isAvailableLabel))
-                    .addGap(32, 32, 32)
+                    .addGap(35, 35, 35)
                     .addComponent(listOfCommitteesLabel)
-                    .addGap(21, 21, 21)
+                    .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(financeRadioButton)
                         .addComponent(technologyRadioButton)
@@ -299,14 +290,14 @@ public class THONPassUI extends javax.swing.JFrame
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(oPPRadioButton)
                         .addComponent(spRadioButton))
-                    .addGap(18, 18, 18)
+                    .addGap(50, 50, 50)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(notifyButton)
                         .addComponent(backButton)
+                        .addComponent(notifyButton)
                         .addComponent(exitButton))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(clockLabel)
-                    .addGap(9, 9, 9))
+                    .addContainerGap())
             );
 
             pack();
