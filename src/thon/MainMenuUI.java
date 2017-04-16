@@ -79,6 +79,11 @@ public class MainMenuUI extends javax.swing.JFrame
 
         radioButtonGroup.add(currentCapacityRadioButton);
         currentCapacityRadioButton.setText("Current THON Capacity");
+        currentCapacityRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currentCapacityRadioButtonActionPerformed(evt);
+            }
+        });
 
         radioButtonGroup.add(thonraiserRadioButton);
         thonraiserRadioButton.setText("THONraiser");
@@ -205,22 +210,17 @@ public class MainMenuUI extends javax.swing.JFrame
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(currentCapacityRadioButton)
-                                .addComponent(thonpassRadioButton)
-                                .addComponent(thonraiserRadioButton))
                             .addComponent(chooseLabel, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(clockLabel))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(exitButton)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(goButton))))
-                            .addComponent(spaceAssignRadioButton, javax.swing.GroupLayout.Alignment.LEADING))))
+                                .addComponent(exitButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(goButton))
+                            .addComponent(spaceAssignRadioButton, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(currentCapacityRadioButton, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(thonpassRadioButton, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(thonraiserRadioButton, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clockLabel, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(196, 196, 196)
@@ -343,6 +343,10 @@ public class MainMenuUI extends javax.swing.JFrame
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void currentCapacityRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentCapacityRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_currentCapacityRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments

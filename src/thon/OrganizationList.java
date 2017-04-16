@@ -92,6 +92,10 @@ public class OrganizationList
         return parentOrganizationList;
     }
     
+    public void ClearMethod(ArrayList<Organization> clearArray){
+        clearArray.clear();
+    }
+    
     public boolean requestSearchOrganizationList(String orgToSearch)
     {
         boolean searchedOrgFound;
@@ -108,10 +112,8 @@ public class OrganizationList
                 orgsFound++;
                 this.organizationRowsFound.add(i);
             }
-        }    
-        
+        }            
         searchedOrgFound = orgsFound > 0;
-        
         return searchedOrgFound;
     }
     

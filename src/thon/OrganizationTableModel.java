@@ -29,9 +29,8 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     {
         this.theOrganizationList = newOrganizationList;
         setParentOrganizationList();
-//        setSortedParentOrganizationList();
     }
-    
+        
     /*
     Single instance of arraylist of organizations was created through the single 
     instance of OrganizationList class (created in the SpaceAssignCntl)
@@ -40,11 +39,7 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
     {
         parentOrganizationList = theOrganizationList.getParentOrganizationList();
     }
-    
-//    public void setSortedParentOrganizationList(){
-//    
-//    }
-    
+        
     public void update() {
         super.fireTableDataChanged();
     }
@@ -61,11 +56,9 @@ public class OrganizationTableModel extends AbstractTableModel implements TableM
         return parentOrganizationList.size();
     }
     
-    
     public void clear(){
         parentOrganizationList.clear();
     }
-
 
     @Override
     public int getColumnCount() 
