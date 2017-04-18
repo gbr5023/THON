@@ -43,7 +43,6 @@ public class THONRaiserUI extends javax.swing.JFrame
         clockLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(387, 390));
         setResizable(false);
 
         thonraiserTable.setModel(this.parentTHONRaiserCntl.getTHONRaiserTableModel());
@@ -97,7 +96,7 @@ public class THONRaiserUI extends javax.swing.JFrame
                                     .addComponent(backButton)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(exitButton)))
-                            .addGap(0, 0, Short.MAX_VALUE))
+                            .addGap(0, 9, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
                             .addComponent(clockLabel)))
@@ -112,7 +111,7 @@ public class THONRaiserUI extends javax.swing.JFrame
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(backButton)
                         .addComponent(exitButton))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                     .addComponent(clockLabel)
                     .addContainerGap())
             );
