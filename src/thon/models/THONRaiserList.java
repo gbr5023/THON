@@ -21,7 +21,7 @@ public class THONRaiserList
     ArrayList<Integer> thonraiserRowsFound;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
-    public static String STORAGE_FILE_PATH = SerializedDataCntl.EXTERNAL_DATA_PATH + "thonraisers.ser";
+    public static String STORAGE_FILE_PATH = "thonraisers.ser";
 
     public THONRaiserList() {
         this.parentTHONRaiserList = SerializedDataCntl.getSerializedDataCntl().getListOfTHONRaisers();
@@ -30,14 +30,17 @@ public class THONRaiserList
         }
     }
 
-    public void readTHONRaiserCSVFile() {
-        try {
+    public void readTHONRaiserCSVFile() 
+    {
+        parentTHONRaiserList = new ArrayList<>();
+        
+        try 
+        {
             thonraiserFileURL = getClass().getResource("THONRaiser.csv");
             thonraiserFile = new File(thonraiserFileURL.getPath());
 
             boolean cont = true;
             in = new Scanner(thonraiserFile);
-            parentTHONRaiserList = new ArrayList<>();
 
             while (cont == true) {
                 if (in.hasNext()) {
@@ -50,7 +53,6 @@ public class THONRaiserList
                     }
                 } else {
                     cont = false;
-                    SerializedDataCntl.getSerializedDataCntl().setList(this.parentTHONRaiserList, STORAGE_FILE_PATH);
                     System.out.println("Reading THONRaiser file done.");
                 }
             }
@@ -84,7 +86,7 @@ public class THONRaiserList
         return parentTHONRaiserList;
     }
     
-    public void setListOfTHONRaisers(ArrayList<THONRaiser> theListOfTHONRaisers)
+    public void setListOfTHONRaisers(ArrayList<THONRaiser> theListOfTHONRaisers) 
     {
         this.parentTHONRaiserList = theListOfTHONRaisers;
     }

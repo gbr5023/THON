@@ -88,6 +88,16 @@ public class SpaceAssignCntl
         return this.theSpaceList.getParentSpaceList();
     }
     
+    public void setListOfOrganizations(ArrayList<Organization> updatedOrganizations) 
+    {
+        this.theOrganizationList.setListOfOrganizations(updatedOrganizations);
+    }
+
+    public void setListOfSpaces(ArrayList<Space> updatedListOfSpaces) 
+    {
+        this.theSpaceList.setListOfSpaces(updatedListOfSpaces);
+    }
+    
     public boolean requestSearchOrganizationList(String orgToSearch)
     {
         boolean searchedOrgFound = this.theOrganizationList.requestSearchOrganizationList(orgToSearch);

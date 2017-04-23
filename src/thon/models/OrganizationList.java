@@ -24,7 +24,7 @@ public class OrganizationList
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
     int searchedOrgRow = -1;
-    public static String STORAGE_FILE_PATH = SerializedDataCntl.EXTERNAL_DATA_PATH + "organizations.ser";
+    public static String STORAGE_FILE_PATH = "organizations.ser";
     
     public OrganizationList()
     {
@@ -36,6 +36,8 @@ public class OrganizationList
 
     public void readOrganizationFile() 
     {
+        parentOrganizationList = new ArrayList<>();
+        
         try
         {
             organizationFileURL = getClass().getResource("THONorganizations.csv");
@@ -43,7 +45,6 @@ public class OrganizationList
             
             boolean cont = true;
             in = new Scanner(organizationFile);
-            parentOrganizationList = new ArrayList<>();
 
             while(cont == true)
             {
@@ -60,7 +61,6 @@ public class OrganizationList
                 else
                 {
                     cont = false;
-                    SerializedDataCntl.getSerializedDataCntl().setList(this.parentOrganizationList, STORAGE_FILE_PATH);
                     System.out.println("Reading org file done.");
                 }               
             }

@@ -7,6 +7,7 @@ import thon.models.Space;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.Timer;
 import javax.swing.RowFilter;
@@ -253,7 +254,13 @@ public class SpaceSectionUI extends javax.swing.JFrame
                     currentSpace.setHasOrg(true);
                     currentSpace.setCapacity(currentSpace.getCapacity() - currentOrg.getMemberCnt());
                     
-                    JOptionPane.showMessageDialog(null, currentOrg.getOrgName() + " assignment successfull.");
+                    /*
+                    ArrayList<Organization> updatedOrgs = this.parentSpaceAssignCntl.getParentOrganizationList();
+                    this.parentSpaceAssignCntl.setListOfOrganizations(updatedOrgs);
+                    ArrayList<Space> updatedSpaces = this.parentSpaceAssignCntl.getParentSpaceList();
+                    this.parentSpaceAssignCntl.setListOfSpaces(updatedSpaces);
+                    */
+                    JOptionPane.showMessageDialog(null, currentOrg.getOrgName() + " assignment successful.");
                 } 
                 else 
                 {

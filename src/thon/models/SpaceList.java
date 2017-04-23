@@ -22,7 +22,8 @@ public class SpaceList
     ArrayList<Integer> spaceRowsFound;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
-    public static String STORAGE_FILE_PATH = SerializedDataCntl.EXTERNAL_DATA_PATH + "spaces.ser";
+    
+    public static String STORAGE_FILE_PATH = "spaces.ser";
     
     public SpaceList()
     {
@@ -34,6 +35,8 @@ public class SpaceList
 
     public void readSpaceFile() 
     {
+        parentSpaceList = new ArrayList<>();
+        
         try
         {
             spaceFileURL = getClass().getResource("SpaceList.csv");
@@ -41,7 +44,6 @@ public class SpaceList
             
             boolean cont = true;
             in = new Scanner(spaceFile);
-            parentSpaceList = new ArrayList<>();
 
             while(cont == true)
             {
@@ -58,7 +60,6 @@ public class SpaceList
                 else
                 {
                     cont = false;
-                    SerializedDataCntl.getSerializedDataCntl().setList(this.parentSpaceList, STORAGE_FILE_PATH);
                     System.out.println("Reading space file done.");
                 }               
             }

@@ -55,8 +55,13 @@ public class THONRaiserCntl
         return theTHONRaiserTableModel;
     }
 
-    public ArrayList<THONRaiser> getParentTHONRaiserList() {
+    public ArrayList<THONRaiser> getParentTHONRaiserList() 
+    {
         return this.theTHONRaiserList.getParentTHONRaiserList();
+    }
+    
+    public void setListOfTHONRaisers(ArrayList<THONRaiser> updatedListOfTHONRaisers) {
+        this.theTHONRaiserList.setListOfTHONRaisers(updatedListOfTHONRaisers);
     }
 
     /*
