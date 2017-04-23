@@ -1,5 +1,6 @@
 package thon;
 
+import java.io.File;
 import thon.controllers.LoginCntl;
 
 import javax.swing.UIManager;
@@ -22,7 +23,8 @@ public class THON
         {
             System.out.println(ex.getMessage());
         }
-        
+        File newFile = new File(".");
+        System.out.println(newFile.getAbsolutePath());
         LoginCntl theLoginCntl = new LoginCntl();
     }
 }

@@ -21,7 +21,7 @@ public class THONRaiserList
     ArrayList<Integer> thonraiserRowsFound;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
-    public static String STORAGE_FILE_PATH = "thonraisers.ser";
+    public static String STORAGE_FILE_PATH = "data/thonraisers.ser";
 
     public THONRaiserList() {
         this.parentTHONRaiserList = SerializedDataCntl.getSerializedDataCntl().getListOfTHONRaisers();
@@ -56,7 +56,7 @@ public class THONRaiserList
                     System.out.println("Reading THONRaiser file done.");
                 }
             }
-            
+            SerializedDataCntl.getSerializedDataCntl().setList(this.parentTHONRaiserList, STORAGE_FILE_PATH);
             //printParentTHONRaiserList();
         } 
         catch (FileNotFoundException fnfe) 
@@ -68,7 +68,7 @@ public class THONRaiserList
 
             System.out.println(err.getMessage());
         }
-        SerializedDataCntl.getSerializedDataCntl().setList(this.parentTHONRaiserList, STORAGE_FILE_PATH);
+        
     }
 
     public ArrayList<Integer> getListOfTHONRaiserRowsFound() 

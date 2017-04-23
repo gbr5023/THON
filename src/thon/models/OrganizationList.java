@@ -24,7 +24,7 @@ public class OrganizationList
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
     int searchedOrgRow = -1;
-    public static String STORAGE_FILE_PATH = "organizations.ser";
+    public static String STORAGE_FILE_PATH = "/organizations.ser";
     
     public OrganizationList()
     {
@@ -64,6 +64,7 @@ public class OrganizationList
                     System.out.println("Reading org file done.");
                 }               
             }
+            SerializedDataCntl.getSerializedDataCntl().setList(this.parentOrganizationList, STORAGE_FILE_PATH);
         }
         catch(FileNotFoundException fnfe)
         {
@@ -74,7 +75,7 @@ public class OrganizationList
             
             System.out.println(err.getMessage());
         }
-        SerializedDataCntl.getSerializedDataCntl().setList(this.parentOrganizationList, STORAGE_FILE_PATH);
+        
     }
     
     public ArrayList<Organization> getParentOrganizationList()

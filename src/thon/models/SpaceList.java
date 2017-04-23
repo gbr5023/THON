@@ -23,7 +23,7 @@ public class SpaceList
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
     
-    public static String STORAGE_FILE_PATH = "spaces.ser";
+    public static String STORAGE_FILE_PATH = "data/spaces.ser";
     
     public SpaceList()
     {
@@ -61,9 +61,9 @@ public class SpaceList
                 {
                     cont = false;
                     System.out.println("Reading space file done.");
-                }               
+                }   
             }
-            
+            SerializedDataCntl.getSerializedDataCntl().setList(this.parentSpaceList, STORAGE_FILE_PATH);
             //printParentSpaceList();
         }
         catch(FileNotFoundException fnfe)
@@ -75,7 +75,6 @@ public class SpaceList
             
             System.out.println(err.getMessage());
         }
-        SerializedDataCntl.getSerializedDataCntl().setList(this.parentSpaceList, STORAGE_FILE_PATH);
     }
     
     public boolean requestSearchSpaceList(String spaceToSearch)
