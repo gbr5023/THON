@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package thon;
 
 import javax.swing.JFrame;
-
-
 
 /**
  *
@@ -51,7 +43,7 @@ public class CurrentCapacityCntl
     }
     
     /*
-    //Chart code
+    //Chart code ti implement for the future
             DefaultCategoryDataset data = new DefaultCategoryDataset();
             data.setValue(2000,"Amount","January");
             data.setValue(2000,"Amount","February");

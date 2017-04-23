@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package thon;
 
 import java.util.ArrayList;
@@ -21,7 +15,6 @@ public class SpaceAssignCntl
     OrganizationList theOrganizationList;
     SpaceList theSpaceList;
     OrganizationTableModel theOrganizationTableModel;
-    //OrganizationTableModel sortedOrganizationTableModel;    
     SpaceTableModel theSpaceTableModel;
     ArrayList<Integer> organizationRowsFound;
     ArrayList<Integer> spaceRowsFound;
@@ -52,7 +45,6 @@ public class SpaceAssignCntl
         theSpaceSectionUI = new SpaceSectionUI(this);
         theSpaceSectionUI.pack();
         theSpaceSectionUI.setTitle("Space Assignment");
-        theSpaceSectionUI.setSize(815, 585);
         theSpaceSectionUI.setLocationRelativeTo(null);
         theSpaceSectionUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         theSpaceSectionUI.setVisible(true);

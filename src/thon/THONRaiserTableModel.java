@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package thon;
 
 import java.util.ArrayList;
@@ -32,9 +26,12 @@ public class THONRaiserTableModel extends AbstractTableModel implements TableMod
         this.parentTHONRaiserList = this.theTHONRaiserList.getParentTHONRaiserList();
     }
     
-//    public void setSortedParentOrganizationList(){
-//    
-//    }
+    /*
+    public void setSortedParentOrganizationList()
+    {
+        
+    }
+    */  
     
     public void update() {
         super.fireTableDataChanged();

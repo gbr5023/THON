@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package thon;
 
 import java.awt.event.ActionEvent;
@@ -111,11 +106,6 @@ public class THONPassUI extends javax.swing.JFrame
         oPPRadioButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         oPPRadioButton.setForeground(new java.awt.Color(51, 51, 255));
         oPPRadioButton.setText("OPPerations");
-        oPPRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oPPRadioButtonActionPerformed(evt);
-            }
-        });
 
         frRadioButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         frRadioButton.setForeground(new java.awt.Color(0, 204, 204));
@@ -152,11 +142,6 @@ public class THONPassUI extends javax.swing.JFrame
         arRadioButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         arRadioButton.setForeground(new java.awt.Color(51, 153, 255));
         arRadioButton.setText("Alumni Relations");
-        arRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                arRadioButtonActionPerformed(evt);
-            }
-        });
 
         communicationsRadioButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         communicationsRadioButton.setForeground(new java.awt.Color(102, 153, 0));
@@ -337,6 +322,8 @@ public class THONPassUI extends javax.swing.JFrame
             System.err.println("Choose a committee option.");
             JOptionPane.showMessageDialog(null, "Choose a committee option.");
         }
+        
+        // for future implementation
         /*
         if(financeSelected == true)
         {
@@ -421,17 +408,9 @@ public class THONPassUI extends javax.swing.JFrame
         this.parentTHONPassCntl.parentNavigationCntl.requestMainMenuUI();
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void oPPRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oPPRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oPPRadioButtonActionPerformed
-
     private void frRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_frRadioButtonActionPerformed
-
-    private void arRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_arRadioButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);

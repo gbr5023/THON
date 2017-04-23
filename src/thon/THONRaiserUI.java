@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package thon;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.util.Date;
+import javax.swing.RowFilter;
 import javax.swing.Timer;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -19,12 +16,15 @@ import javax.swing.Timer;
 public class THONRaiserUI extends javax.swing.JFrame 
 {
     THONRaiserCntl parentTHONRaiserCntl;
-
+    TableRowSorter<TableModel> rowSorterTHONRaiser;
+    
     /** Creates new form THONRaiserUI */
     public THONRaiserUI(THONRaiserCntl newParentTHONRaiserCntl) 
     {
         this.parentTHONRaiserCntl = newParentTHONRaiserCntl;
         initComponents();
+        rowSorterTHONRaiser = new TableRowSorter<>(this.thonraiserTable.getModel());
+
     }
 
     /** This method is called from within the constructor to
@@ -41,6 +41,8 @@ public class THONRaiserUI extends javax.swing.JFrame
         backButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
         clockLabel = new javax.swing.JLabel();
+        thonRaiserSearchTextField = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -80,26 +82,38 @@ public class THONRaiserUI extends javax.swing.JFrame
             clockLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
             clockLabel.setText("");
 
+            searchButton.setText("Search");
+            searchButton.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    searchButtonActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(clockLabel))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(130, 130, 130)
+                                    .addGap(135, 135, 135)
                                     .addComponent(backButton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(exitButton)))
-                            .addGap(0, 9, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(clockLabel)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(exitButton))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(thonRaiserSearchTextField)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(searchButton))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(0, 9, Short.MAX_VALUE)))
                     .addContainerGap())
             );
             layout.setVerticalGroup(
@@ -109,9 +123,13 @@ public class THONRaiserUI extends javax.swing.JFrame
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(thonRaiserSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchButton))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(backButton)
                         .addComponent(exitButton))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                    .addGap(8, 8, 8)
                     .addComponent(clockLabel)
                     .addContainerGap())
             );
@@ -132,6 +150,17 @@ public class THONRaiserUI extends javax.swing.JFrame
         this.setVisible(false);
         this.parentTHONRaiserCntl.parentNavigationCntl.requestMainMenuUI();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        this.thonraiserTable.setRowSorter(rowSorterTHONRaiser);
+        String searchedWord = this.thonRaiserSearchTextField.getText();
+        if (searchedWord.trim().length() == 0) {
+            rowSorterTHONRaiser.setRowFilter(null);
+        } else {
+            rowSorterTHONRaiser.setRowFilter(RowFilter.regexFilter("(?i)" + searchedWord));
+            //this.organizationTable.setModel(rowSorterOrganization);
+        }
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +196,8 @@ public class THONRaiserUI extends javax.swing.JFrame
     private javax.swing.JLabel clockLabel;
     private javax.swing.JButton exitButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JTextField thonRaiserSearchTextField;
     private javax.swing.JTable thonraiserTable;
     // End of variables declaration//GEN-END:variables
 

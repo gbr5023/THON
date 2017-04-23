@@ -252,9 +252,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="OPPerations"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oPPRadioButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="frRadioButton">
       <Properties>
@@ -343,9 +340,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Alumni Relations"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="arRadioButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="communicationsRadioButton">
       <Properties>

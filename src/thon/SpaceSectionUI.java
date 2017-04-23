@@ -4,15 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.util.Date;
-import javafx.scene.input.DataFormat;
 import javax.swing.Timer;
 import javax.swing.RowFilter;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import javax.swing.table.TableRowSorter;
-import java.util.ArrayList;
-import java.util.Scanner;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
@@ -31,6 +25,9 @@ public class SpaceSectionUI extends javax.swing.JFrame
     SpaceAssignCntl parentSpaceAssignCntl;
     TableRowSorter<TableModel> rowSorterOrganization;
     TableRowSorter<TableModel> rowSorterSpace;
+    int rowOrg;
+    int rowSpace;
+    
     public SpaceSectionUI(SpaceAssignCntl newParentSpaceAssignCntl) 
     {
         this.parentSpaceAssignCntl = newParentSpaceAssignCntl;
@@ -89,15 +86,12 @@ public class SpaceSectionUI extends javax.swing.JFrame
         spaceSectionScrollPane.setViewportView(spaceTable);
 
         organizationTable.setModel(parentSpaceAssignCntl.getOrganizationTableModel());
-        organizationTable.setColumnSelectionAllowed(true);
-        organizationTable.setRowSelectionAllowed(true);
-        organizationTable.setCellSelectionEnabled(false);
+        organizationTable.setColumnSelectionAllowed(false);
         organizationScrollPane.setViewportView(organizationTable);
-        organizationTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         organizationTable.getAccessibleContext().setAccessibleName("");
 
         searchOrgsButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        searchOrgsButton.setText("Search Organizations");
+        searchOrgsButton.setText("Search Organizations / Refresh Table");
         searchOrgsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchOrgsButtonActionPerformed(evt);
@@ -112,12 +106,12 @@ public class SpaceSectionUI extends javax.swing.JFrame
             }
         });
 
-        statusLabel.setText("Assign Status:");
+        statusLabel.setText("Most Recent Space Assignment Status:");
 
         statusJLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         searchSpacesButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        searchSpacesButton.setText("Search Spaces");
+        searchSpacesButton.setText("Search Spaces / Refresh Table");
         searchSpacesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchSpacesButtonActionPerformed(evt);
@@ -125,11 +119,6 @@ public class SpaceSectionUI extends javax.swing.JFrame
         });
 
         searchOrgsTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        searchOrgsTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchOrgsTextFieldActionPerformed(evt);
-            }
-        });
 
         clockLabel.setFont(new java.awt.Font("Tahoma", 0, 14));
         tickTock();
@@ -154,42 +143,43 @@ public class SpaceSectionUI extends javax.swing.JFrame
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
+                    .addGap(25, 25, 25)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(searchSpacesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchSpacesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(searchOrgsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(searchOrgsButton)))))
+                    .addGap(28, 28, 28)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(searchOrgsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(searchOrgsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(organizationScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(spaceSectionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(searchSpacesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(searchSpacesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(108, 108, 108)
                                     .addComponent(backButton)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(assignButton)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(exitButton))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(statusLabel)
-                                    .addComponent(statusJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(clockLabel))
-                            .addContainerGap(36, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(137, 137, 137)
+                                    .addComponent(clockLabel)))
+                            .addGap(0, 0, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(statusLabel)
+                                    .addComponent(spaceMap, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(statusJLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap())
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,11 +193,11 @@ public class SpaceSectionUI extends javax.swing.JFrame
                                 .addComponent(backButton)
                                 .addComponent(assignButton)
                                 .addComponent(exitButton))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(18, 18, 18)
                             .addComponent(statusLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(statusJLabel)
-                            .addGap(26, 26, 26)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(clockLabel))
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -241,22 +231,36 @@ public class SpaceSectionUI extends javax.swing.JFrame
     private void assignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignButtonActionPerformed
         try
         {
-            int rowOrg = organizationTable.getSelectedRow();
-            int rowSpace = spaceTable.getSelectedRow();
+            this.rowOrg = this.organizationTable.convertRowIndexToModel(this.organizationTable.getSelectedRow());
+            this.rowSpace = this.spaceTable.convertRowIndexToModel(this.spaceTable.getSelectedRow());
 
             Organization currentOrg = parentSpaceAssignCntl.getParentOrganizationList().get(rowOrg);
             Space currentSpace = parentSpaceAssignCntl.getParentSpaceList().get(rowSpace);
 
-            currentOrg.setOrgSpace(currentSpace.getSpace());
-            currentOrg.setHasSpace(true);
-            String newStatus = (currentOrg.getOrgName() + ", Has Space? " + currentOrg.getHasSpace() + ": " + currentOrg.getOrgSpace());
-            this.statusJLabel.setText(newStatus);
+            if(!currentOrg.getHasSpace())
+            {
+                if (currentOrg.memberCnt <= currentSpace.getCapacity()) {
+                    currentOrg.setOrgSpace(currentSpace.getSpace());
+                    currentOrg.setHasSpace(true);
+                    String newStatus = (currentOrg.getOrgName() + ": " + currentOrg.getOrgSpace());
+                    this.statusJLabel.setText(newStatus);
 
-            currentSpace.setOrg(currentOrg.getOrgName());
-            currentSpace.setHasOrg(true);
-            currentSpace.setCapacity(currentSpace.getCapacity() - currentOrg.getMemberCnt());
-            System.out.println(currentSpace.getSpace() + ", Has Org? " + currentSpace.getHasOrg() + ": " + currentSpace.getOrg());
-
+                    currentSpace.setOrg(currentOrg.getOrgName());
+                    currentSpace.setHasOrg(true);
+                    currentSpace.setCapacity(currentSpace.getCapacity() - currentOrg.getMemberCnt());
+                    
+                    JOptionPane.showMessageDialog(null, currentOrg.getOrgName() + " assignment successfull.");
+                } 
+                else 
+                {
+                    JOptionPane.showMessageDialog(null, "Space capacity is not enough. Choose another space.");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "This organization has a space assigned already.");
+            }
+            
             this.parentSpaceAssignCntl.updateTableModels();
         }
         catch(ArrayIndexOutOfBoundsException err)
@@ -268,12 +272,15 @@ public class SpaceSectionUI extends javax.swing.JFrame
     
 
     private void searchOrgsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        organizationTable.setRowSorter(rowSorterOrganization);
+        this.organizationTable.setRowSorter(rowSorterOrganization);
         String searchedWord = searchOrgsTextField.getText();
-        if (searchedWord.trim().length()==0){
+        
+        if (searchedWord.trim().length() == 0)
+        {
             rowSorterOrganization.setRowFilter(null);
         }
-        else {
+        else 
+        {
             rowSorterOrganization.setRowFilter(RowFilter.regexFilter("(?i)" + searchedWord));
         }
     }
@@ -283,21 +290,19 @@ public class SpaceSectionUI extends javax.swing.JFrame
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void searchSpacesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSpacesButtonActionPerformed
-        spaceTable.setRowSorter(rowSorterSpace);
+        this.spaceTable.setRowSorter(rowSorterSpace);
         String searchedWord = searchSpacesTextField.getText();
-        if (searchedWord.trim().length()==0){
+        
+        if (searchedWord.trim().length() == 0)
+        {
             rowSorterSpace.setRowFilter(null);
         }
-        else {
+        else 
+        {
             rowSorterSpace.setRowFilter(RowFilter.regexFilter("(?i)" + searchedWord));
         }
     }//GEN-LAST:event_searchSpacesButtonActionPerformed
-
-    private void searchOrgsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                    
-        // TODO add your handling code here:
-    }                                           
-    
-    /**
+     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {

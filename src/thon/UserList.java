@@ -10,7 +10,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement; // need in order to execute SQL statement on the THONUSER table
 import java.sql.ResultSet;
-import java.util.Arrays;
 
 /**
  *

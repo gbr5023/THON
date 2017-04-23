@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package thon;
 
 import java.time.*;
-//import java.time.temporal.ChronoUnit;
 import java.util.Random;
 
 /**
@@ -16,8 +9,6 @@ import java.util.Random;
  */
 public class CurrentCapacityUpdater 
 {
-    //LocalDateTime currentTime;
-    //LocalDateTime fromTime;
     LocalTime systemTime;
     LocalDate date;
     DayOfWeek day;
@@ -36,24 +27,21 @@ public class CurrentCapacityUpdater
         getCurrentSystemDate();
         theDay = convertDayToString();
         calculateCurrentCapacity(theDay);
-        //calculateElapsedTime();
     }
     public void getCurrentSystemTime()
     {
         systemTime = LocalTime.now();
-        //System.out.println(systemTime);
     }
     
     public void getCurrentSystemDate()
     {
         date = LocalDate.now();
-        //System.out.println(date);
     }
     
     public String convertDayToString()
     {
         day = date.getDayOfWeek();
-        System.out.println(day);
+        
         if(day == DayOfWeek.FRIDAY)
         {
             theDay = "Friday";
@@ -144,20 +132,4 @@ public class CurrentCapacityUpdater
     {
         return this.currentCnt;
     }
-    
-    /*
-    public int calculateElapsedTime()
-    {
-        fromTime = LocalDateTime.of(2017, 3, 17, 16, 0, 0);
-        
-        long minutes = ChronoUnit.MINUTES.between(fromTime, currentTime);
-        System.out.println(minutes);
-        long hours = ChronoUnit.HOURS.between(fromTime, currentTime);
-        System.out.println(hours);
-        long days = ChronoUnit.DAYS.between(fromTime, currentTime);
-        System.out.println(days);
-        
-        return (int) minutes;
-    }
-    */
 }
