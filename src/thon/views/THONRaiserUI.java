@@ -1,4 +1,6 @@
-package thon;
+package thon.views;
+
+import thon.controllers.THONRaiserCntl;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

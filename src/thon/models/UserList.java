@@ -2,7 +2,7 @@
  * Visit: www.homeandlearn.co.uk/java/connecting_to_a_database_table.html
  */
 
-package thon;
+package thon.models;
 
 import java.util.ArrayList;
 import java.sql.Connection;

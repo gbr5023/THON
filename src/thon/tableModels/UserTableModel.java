@@ -1,4 +1,4 @@
-package thon;
+package thon.tableModels;
 
 /**
  *

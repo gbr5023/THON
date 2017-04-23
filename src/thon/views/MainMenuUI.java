@@ -1,4 +1,6 @@
-package thon;
+package thon.views;
+
+import thon.controllers.NavigationCntl;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +15,7 @@ import javax.swing.Timer;
  */
 public class MainMenuUI extends javax.swing.JFrame 
 {
-    private NavigationCntl parentNavigationCntl;    
+    NavigationCntl parentNavigationCntl;    
     
     public MainMenuUI(NavigationCntl newParentNavigationCntl) {
         this.parentNavigationCntl = newParentNavigationCntl;

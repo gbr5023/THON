@@ -1,5 +1,6 @@
-package thon;
+package thon.controllers;
 
+import thon.views.MainMenuUI;
 import javax.swing.JFrame;
 
 /**

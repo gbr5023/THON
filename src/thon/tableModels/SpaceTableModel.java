@@ -1,4 +1,7 @@
-package thon;
+package thon.tableModels;
+
+import thon.models.SpaceList;
+import thon.models.Space;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;

@@ -1,6 +1,8 @@
-package thon;
+package thon.controllers;
 
 import javax.swing.JFrame;
+import thon.views.CurrentCapacityUI;
+import thon.models.CurrentCapacityUpdater;
 
 /**
  *
@@ -8,7 +10,7 @@ import javax.swing.JFrame;
  */
 public class CurrentCapacityCntl 
 {
-    NavigationCntl parentNavigationCntl;
+    public NavigationCntl parentNavigationCntl;
     CurrentCapacityUI theCurrentCapacityUI;
     CurrentCapacityUpdater theCurrentCapacityUpdater;
     int currentCapacity;
@@ -22,8 +24,8 @@ public class CurrentCapacityCntl
     public void setNavigationCntl(NavigationCntl newParentNavigationCntl)
     {
         System.out.println("Made it to the CurrentCapacityCntl");
-        parentNavigationCntl = newParentNavigationCntl;
-        requestCurrentCapacityUI();
+        this.parentNavigationCntl = newParentNavigationCntl;
+        this.requestCurrentCapacityUI();
     }
     
     public void requestCurrentCapacityUI() 

@@ -1,4 +1,9 @@
-package thon;
+package thon.controllers;
+
+import thon.views.THONRaiserUI;
+import thon.models.THONRaiser;
+import thon.models.THONRaiserList;
+import thon.tableModels.THONRaiserTableModel;
 
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -10,7 +15,7 @@ import javax.swing.table.TableModel;
 public class THONRaiserCntl 
 {
     THONRaiserUI theTHONRaiserUI;
-    NavigationCntl parentNavigationCntl;
+    public NavigationCntl parentNavigationCntl;
     THONRaiserList theTHONRaiserList;
     THONRaiserTableModel theTHONRaiserTableModel;
     ArrayList<Integer> thonraiserRowsFound;

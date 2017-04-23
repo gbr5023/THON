@@ -1,6 +1,8 @@
-package thon;
+package thon.controllers;
 
 import javax.swing.JFrame;
+import thon.views.LoginUI;
+import thon.models.UserList;
 
 /**
  *

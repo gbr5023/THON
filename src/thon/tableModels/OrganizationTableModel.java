@@ -1,4 +1,7 @@
-package thon;
+package thon.tableModels;
+
+import thon.models.Organization;
+import thon.models.OrganizationList;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;

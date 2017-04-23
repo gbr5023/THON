@@ -1,4 +1,7 @@
-package thon;
+package thon.controllers;
+
+import thon.views.THONPassUI;
+import thon.models.CurrentCapacityUpdater;
 
 import javax.swing.JFrame;
 
@@ -9,9 +12,9 @@ import javax.swing.JFrame;
 public class THONPassCntl 
 {
     THONPassUI theTHONPassUI;
-    NavigationCntl parentNavigationCntl;
+    public NavigationCntl parentNavigationCntl;
     CurrentCapacityUpdater theCurrentCapacityUpdater;
-    int currentCapacity;
+    public int currentCapacity;
     
     /*
     controller classes now have the sole ability to instantiate model classes and

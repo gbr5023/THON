@@ -1,5 +1,7 @@
 package thon;
 
+import thon.controllers.LoginCntl;
+
 import javax.swing.UIManager;
     import javax.swing.UnsupportedLookAndFeelException;
 

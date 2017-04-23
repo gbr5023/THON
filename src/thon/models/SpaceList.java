@@ -1,10 +1,12 @@
-package thon;
+package thon.models;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import thon.controllers.SerializedDataCntl;
 
 /**
  *
@@ -20,19 +22,13 @@ public class SpaceList
     ArrayList<Integer> spaceRowsFound;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
+    public static String STORAGE_FILE_PATH = SerializedDataCntl.EXTERNAL_DATA_PATH + "spaces.ser";
     
     public SpaceList()
     {
-        if(readCount == 0)
-        {
-            System.out.println("creating new parent space list");
+        this.parentSpaceList = SerializedDataCntl.getSerializedDataCntl().getListOfSpaces();
+        if (this.parentSpaceList.isEmpty()) {
             readSpaceFile();
-            readCount++;
-        }
-        else
-        {
-            System.out.println("already created parent space list.. reading");
-            getParentSpaceList();
         }
     }
 
@@ -62,9 +58,11 @@ public class SpaceList
                 else
                 {
                     cont = false;
+                    SerializedDataCntl.getSerializedDataCntl().setList(this.parentSpaceList, STORAGE_FILE_PATH);
                     System.out.println("Reading space file done.");
                 }               
-            }        
+            }
+            
             //printParentSpaceList();
         }
         catch(FileNotFoundException fnfe)
@@ -76,6 +74,7 @@ public class SpaceList
             
             System.out.println(err.getMessage());
         }
+        SerializedDataCntl.getSerializedDataCntl().setList(this.parentSpaceList, STORAGE_FILE_PATH);
     }
     
     public boolean requestSearchSpaceList(String spaceToSearch)
@@ -108,7 +107,17 @@ public class SpaceList
     
     public ArrayList<Space> getParentSpaceList()
     {
+        if(this.parentSpaceList == null)
+        {
+            this.readSpaceFile();
+        }
+        
         return parentSpaceList;
+    }
+    
+    public void setListOfSpaces(ArrayList<Space> theListOfSpaces) 
+    {
+        this.parentSpaceList = theListOfSpaces;
     }
     
     public void printParentSpaceList()

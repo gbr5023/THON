@@ -1,4 +1,4 @@
-package thon;
+package thon.models;
 
 import java.time.*;
 import java.util.Random;

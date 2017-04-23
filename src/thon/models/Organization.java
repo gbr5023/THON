@@ -1,4 +1,4 @@
-package thon;
+package thon.models;
 
 /**
  *
@@ -7,7 +7,7 @@ package thon;
 public class Organization 
 {
     String name;
-    int memberCnt;
+    public int memberCnt;
     boolean hasSpace;
     String space;
     

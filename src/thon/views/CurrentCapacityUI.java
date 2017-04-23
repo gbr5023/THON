@@ -1,4 +1,6 @@
-package thon;
+package thon.views;
+
+import thon.controllers.CurrentCapacityCntl;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,8 +24,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class CurrentCapacityUI extends javax.swing.JFrame 
 {
-    private CurrentCapacityCntl parentCurrentCapacityCntl;
-    private String [] days = {"Friday, Saturday, Sunday"};
+    CurrentCapacityCntl parentCurrentCapacityCntl;
+    String [] days = {"Friday, Saturday, Sunday"};
     /**
      * Creates new form CurrentCapacityUI
      */

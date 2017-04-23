@@ -1,4 +1,12 @@
-package thon;
+package thon.controllers;
+
+import thon.views.SpaceSectionUI;
+import thon.models.Organization;
+import thon.models.OrganizationList;
+import thon.tableModels.OrganizationTableModel;
+import thon.models.Space;
+import thon.models.SpaceList;
+import thon.tableModels.SpaceTableModel;
 
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -11,7 +19,7 @@ import javax.swing.table.TableModel;
 public class SpaceAssignCntl 
 {
     SpaceSectionUI theSpaceSectionUI;
-    NavigationCntl parentNavigationCntl;
+    public NavigationCntl parentNavigationCntl;
     OrganizationList theOrganizationList;
     SpaceList theSpaceList;
     OrganizationTableModel theOrganizationTableModel;

@@ -1,4 +1,7 @@
-package thon;
+package thon.tableModels;
+
+import thon.models.THONRaiser;
+import thon.models.THONRaiserList;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;

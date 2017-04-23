@@ -1,4 +1,6 @@
-package thon;
+package thon.models;
+
+import thon.controllers.SerializedDataCntl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,25 +19,18 @@ public class OrganizationList
     Scanner in;
     ArrayList<Organization> parentOrganizationList;
     ArrayList<Organization> sortedOrganizationList;
-    SpaceSectionUI userInput;
     ArrayList<Integer> organizationRowsFound;
     Organization newOrganization;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
     int searchedOrgRow = -1;
+    public static String STORAGE_FILE_PATH = SerializedDataCntl.EXTERNAL_DATA_PATH + "organizations.ser";
     
     public OrganizationList()
     {
-        if(readCount == 0)
-        {
-            System.out.println("creating new parent organization list");
+        this.parentOrganizationList = SerializedDataCntl.getSerializedDataCntl().getListOfOrganizations();
+        if (this.parentOrganizationList.isEmpty()) {
             readOrganizationFile();
-            readCount++;
-        }
-        else
-        {
-            System.out.println("already created parent organization list.. reading");
-            getParentOrganizationList();
         }
     }
 
@@ -65,6 +60,7 @@ public class OrganizationList
                 else
                 {
                     cont = false;
+                    SerializedDataCntl.getSerializedDataCntl().setList(this.parentOrganizationList, STORAGE_FILE_PATH);
                     System.out.println("Reading org file done.");
                 }               
             }
@@ -78,11 +74,22 @@ public class OrganizationList
             
             System.out.println(err.getMessage());
         }
+        SerializedDataCntl.getSerializedDataCntl().setList(this.parentOrganizationList, STORAGE_FILE_PATH);
     }
     
     public ArrayList<Organization> getParentOrganizationList()
     {
-        return parentOrganizationList;
+        if(this.parentOrganizationList == null)
+        {
+            this.readOrganizationFile();
+        }
+        
+        return this.parentOrganizationList;
+    }
+    
+    public void setListOfOrganizations(ArrayList<Organization> theListOfOrganizations) 
+    {
+        this.parentOrganizationList = theListOfOrganizations;
     }
     
     public void ClearMethod(ArrayList<Organization> clearArray){

@@ -1,4 +1,6 @@
-package thon;
+package thon.models;
+
+import thon.controllers.SerializedDataCntl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,15 +21,12 @@ public class THONRaiserList
     ArrayList<Integer> thonraiserRowsFound;
     final String COMMA_DELIMITER = ",";
     int readCount = 0;
+    public static String STORAGE_FILE_PATH = SerializedDataCntl.EXTERNAL_DATA_PATH + "thonraisers.ser";
 
     public THONRaiserList() {
-        if (readCount == 0) {
-            System.out.println("creating new parent THONRaiser List");
+        this.parentTHONRaiserList = SerializedDataCntl.getSerializedDataCntl().getListOfTHONRaisers();
+        if (this.parentTHONRaiserList.isEmpty()) {
             readTHONRaiserCSVFile();
-            readCount++;
-        } else {
-            System.out.println("already created parent THONRaiser List.. reading");
-            getParentTHONRaiserList();
         }
     }
 
@@ -51,24 +50,43 @@ public class THONRaiserList
                     }
                 } else {
                     cont = false;
+                    SerializedDataCntl.getSerializedDataCntl().setList(this.parentTHONRaiserList, STORAGE_FILE_PATH);
                     System.out.println("Reading THONRaiser file done.");
                 }
             }
+            
             //printParentTHONRaiserList();
-        } catch (FileNotFoundException fnfe) {
+        } 
+        catch (FileNotFoundException fnfe) 
+        {
             System.out.println(fnfe.getMessage());
-        } catch (Exception err) {
+        } 
+        catch (Exception err) 
+        {
 
             System.out.println(err.getMessage());
         }
+        SerializedDataCntl.getSerializedDataCntl().setList(this.parentTHONRaiserList, STORAGE_FILE_PATH);
     }
 
-    public ArrayList<Integer> getListOfTHONRaiserRowsFound() {
+    public ArrayList<Integer> getListOfTHONRaiserRowsFound() 
+    {
         return this.thonraiserRowsFound;
     }
 
-    public ArrayList<THONRaiser> getParentTHONRaiserList() {
+    public ArrayList<THONRaiser> getParentTHONRaiserList() 
+    {
+        if(this.parentTHONRaiserList == null)
+        {
+            this.readTHONRaiserCSVFile();
+        }
+        
         return parentTHONRaiserList;
+    }
+    
+    public void setListOfTHONRaisers(ArrayList<THONRaiser> theListOfTHONRaisers)
+    {
+        this.parentTHONRaiserList = theListOfTHONRaisers;
     }
 
     public void printParentTHONRaiserList() {
