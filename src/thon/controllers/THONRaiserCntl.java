@@ -42,7 +42,7 @@ public class THONRaiserCntl
     public void requestTHONRaiserUI() {
         this.theTHONRaiserUI = new THONRaiserUI(this);
         this.theTHONRaiserUI.pack();
-        this.theTHONRaiserUI.setTitle("Space Assignment");
+        this.theTHONRaiserUI.setTitle("THONRaiser");
         //this.theTHONRaiserUI.setSize(405, 374);
         this.theTHONRaiserUI.setLocationRelativeTo(null);
         this.theTHONRaiserUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
